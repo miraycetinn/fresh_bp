@@ -1,11 +1,18 @@
-import 'package:best_flutter_ui_templates/fitness_app/models/tabIcon_data.dart';
-import 'package:best_flutter_ui_templates/fitness_app/training/training_screen.dart';
+import 'package:freshh/app_theme.dart';
+import 'package:freshh/design_course/product_info_screen.dart';
+import 'package:freshh/design_course/product_list_view.dart';
+import 'package:freshh/fitness_app/models/tabIcon_data.dart';
+import 'package:freshh/fitness_app/training/training_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:freshh/skin_app/skin_home_screen.dart';
+import 'package:get/get.dart';
 import 'bottom_navigation_view/bottom_bar_view.dart';
 import 'fitness_app_theme.dart';
 import 'my_diary/my_diary_screen.dart';
 
 class FitnessAppHomeScreen extends StatefulWidget {
+  const FitnessAppHomeScreen({super.key});
+
   @override
   _FitnessAppHomeScreenState createState() => _FitnessAppHomeScreenState();
 }
@@ -52,7 +59,7 @@ class _FitnessAppHomeScreenState extends State<FitnessAppHomeScreen>
               return const SizedBox();
             } else {
               return Stack(
-                children: <Widget>[
+                children: [
                   tabBody,
                   bottomBar(),
                 ],
@@ -69,9 +76,41 @@ class _FitnessAppHomeScreenState extends State<FitnessAppHomeScreen>
     return true;
   }
 
+  Widget getProductUI() {
+    return SafeArea(
+      child: Padding(
+        padding: const EdgeInsets.only(top: 8.0, left: 18, right: 16),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Text(
+              'Products',
+              textAlign: TextAlign.left,
+              style: TextStyle(
+                fontWeight: FontWeight.w600,
+                fontSize: 22,
+                letterSpacing: 0.27,
+                color: AppTheme.darkerText,
+              ),
+            ),
+            Flexible(
+              child: ProductListView(
+                callBack: () {
+                  Get.to(ProductInfoScreen());
+                },
+              ),
+            )
+          ],
+        ),
+      ),
+    );
+  }
+
+
   Widget bottomBar() {
     return Column(
-      children: <Widget>[
+      children: [
         const Expanded(
           child: SizedBox(),
         ),
@@ -79,7 +118,7 @@ class _FitnessAppHomeScreenState extends State<FitnessAppHomeScreen>
           tabIconsList: tabIconsList,
           addClick: () {},
           changeIndex: (int index) {
-            if (index == 0 || index == 2) {
+            if (index == 0 ) {
               animationController?.reverse().then<dynamic>((data) {
                 if (!mounted) {
                   return;
@@ -89,7 +128,7 @@ class _FitnessAppHomeScreenState extends State<FitnessAppHomeScreen>
                       MyDiaryScreen(animationController: animationController);
                 });
               });
-            } else if (index == 1 || index == 3) {
+            } else if (index == 1) {
               animationController?.reverse().then<dynamic>((data) {
                 if (!mounted) {
                   return;
@@ -97,6 +136,26 @@ class _FitnessAppHomeScreenState extends State<FitnessAppHomeScreen>
                 setState(() {
                   tabBody =
                       TrainingScreen(animationController: animationController);
+                });
+              });
+            }else if (index == 2 ) {
+              animationController?.reverse().then<dynamic>((data) {
+                if (!mounted) {
+                  return;
+                }
+                setState(() {
+                  tabBody =
+                      getProductUI();
+                });
+              });
+            }else if (index == 3 ) {
+              animationController?.reverse().then<dynamic>((data) {
+                if (!mounted) {
+                  return;
+                }
+                setState(() {
+                  tabBody =
+                      SkinHomeScreen(animationController: animationController);
                 });
               });
             }

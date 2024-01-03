@@ -1,4 +1,4 @@
-import 'package:best_flutter_ui_templates/app_theme.dart';
+import 'package:freshh/app_theme.dart';
 import 'package:flutter/material.dart';
 
 class InviteFriend extends StatefulWidget {
@@ -23,7 +23,7 @@ class _InviteFriendState extends State<InviteFriend> {
         child: Scaffold(
           backgroundColor: isLightMode ? AppTheme.white : AppTheme.nearlyBlack,
           body: Column(
-            children: <Widget>[
+            children: [
               Container(
                 padding: EdgeInsets.only(
                     top: MediaQuery.of(context).padding.top,
@@ -82,7 +82,7 @@ class _InviteFriendState extends State<InviteFriend> {
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.center,
-                              children: <Widget>[
+                              children: [
                                 Icon(
                                   Icons.share,
                                   color:

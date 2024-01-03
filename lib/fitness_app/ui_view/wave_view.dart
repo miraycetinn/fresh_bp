@@ -1,5 +1,5 @@
 import 'dart:math' as math;
-import 'package:best_flutter_ui_templates/fitness_app/fitness_app_theme.dart';
+import 'package:freshh/fitness_app/fitness_app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:vector_math/vector_math.dart' as vector;
 
@@ -83,7 +83,7 @@ class _WaveViewState extends State<WaveView> with TickerProviderStateMixin {
           curve: Curves.easeInOut,
         ),
         builder: (context, child) => new Stack(
-          children: <Widget>[
+          children: [
             new ClipPath(
               child: new Container(
                 decoration: BoxDecoration(
@@ -132,7 +132,7 @@ class _WaveViewState extends State<WaveView> with TickerProviderStateMixin {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
+                  children: [
                     Text(
                       widget.percentageValue.round().toString(),
                       textAlign: TextAlign.center,
@@ -240,7 +240,7 @@ class _WaveViewState extends State<WaveView> with TickerProviderStateMixin {
               ),
             ),
             Column(
-              children: <Widget>[
+              children: [
                 AspectRatio(
                   aspectRatio: 1,
                   child: Image.asset("assets/fitness_app/bottle.png"),

@@ -1,5 +1,5 @@
-import 'package:best_flutter_ui_templates/fitness_app/fitness_app_theme.dart';
-import 'package:best_flutter_ui_templates/main.dart';
+import 'package:freshh/fitness_app/fitness_app_theme.dart';
+import 'package:freshh/main.dart';
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
 
@@ -40,20 +40,20 @@ class MediterranesnDietView extends StatelessWidget {
                   ],
                 ),
                 child: Column(
-                  children: <Widget>[
+                  children: [
                     Padding(
                       padding:
                           const EdgeInsets.only(top: 16, left: 16, right: 16),
                       child: Row(
-                        children: <Widget>[
+                        children: [
                           Expanded(
                             child: Padding(
                               padding: const EdgeInsets.only(
                                   left: 8, right: 8, top: 4),
                               child: Column(
-                                children: <Widget>[
+                                children: [
                                   Row(
-                                    children: <Widget>[
+                                    children: [
                                       Container(
                                         height: 48,
                                         width: 2,
@@ -71,7 +71,7 @@ class MediterranesnDietView extends StatelessWidget {
                                               MainAxisAlignment.center,
                                           crossAxisAlignment:
                                               CrossAxisAlignment.start,
-                                          children: <Widget>[
+                                          children: [
                                             Padding(
                                               padding: const EdgeInsets.only(
                                                   left: 4, bottom: 2),
@@ -94,7 +94,7 @@ class MediterranesnDietView extends StatelessWidget {
                                                   MainAxisAlignment.center,
                                               crossAxisAlignment:
                                                   CrossAxisAlignment.end,
-                                              children: <Widget>[
+                                              children: [
                                                 SizedBox(
                                                   width: 28,
                                                   height: 28,
@@ -152,7 +152,7 @@ class MediterranesnDietView extends StatelessWidget {
                                     height: 8,
                                   ),
                                   Row(
-                                    children: <Widget>[
+                                    children: [
                                       Container(
                                         height: 48,
                                         width: 2,
@@ -170,7 +170,7 @@ class MediterranesnDietView extends StatelessWidget {
                                               MainAxisAlignment.center,
                                           crossAxisAlignment:
                                               CrossAxisAlignment.start,
-                                          children: <Widget>[
+                                          children: [
                                             Padding(
                                               padding: const EdgeInsets.only(
                                                   left: 4, bottom: 2),
@@ -193,7 +193,7 @@ class MediterranesnDietView extends StatelessWidget {
                                                   MainAxisAlignment.center,
                                               crossAxisAlignment:
                                                   CrossAxisAlignment.end,
-                                              children: <Widget>[
+                                              children: [
                                                 SizedBox(
                                                   width: 28,
                                                   height: 28,
@@ -256,7 +256,7 @@ class MediterranesnDietView extends StatelessWidget {
                             child: Center(
                               child: Stack(
                                 clipBehavior: Clip.none,
-                                children: <Widget>[
+                                children: [
                                   Padding(
                                     padding: const EdgeInsets.all(8.0),
                                     child: Container(
@@ -278,7 +278,7 @@ class MediterranesnDietView extends StatelessWidget {
                                             MainAxisAlignment.center,
                                         crossAxisAlignment:
                                             CrossAxisAlignment.center,
-                                        children: <Widget>[
+                                        children: [
                                           Text(
                                             '${(1503 * animation!.value).toInt()}',
                                             textAlign: TextAlign.center,
@@ -349,12 +349,12 @@ class MediterranesnDietView extends StatelessWidget {
                       padding: const EdgeInsets.only(
                           left: 24, right: 24, top: 8, bottom: 16),
                       child: Row(
-                        children: <Widget>[
+                        children: [
                           Expanded(
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.start,
-                              children: <Widget>[
+                              children: [
                                 Text(
                                   'Carbs',
                                   textAlign: TextAlign.center,
@@ -378,7 +378,7 @@ class MediterranesnDietView extends StatelessWidget {
                                           Radius.circular(4.0)),
                                     ),
                                     child: Row(
-                                      children: <Widget>[
+                                      children: [
                                         Container(
                                           width: ((70 / 1.2) * animation!.value),
                                           height: 4,
@@ -417,11 +417,11 @@ class MediterranesnDietView extends StatelessWidget {
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.center,
-                              children: <Widget>[
+                              children: [
                                 Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: <Widget>[
+                                  children: [
                                     Text(
                                       'Protein',
                                       textAlign: TextAlign.center,
@@ -445,7 +445,7 @@ class MediterranesnDietView extends StatelessWidget {
                                               Radius.circular(4.0)),
                                         ),
                                         child: Row(
-                                          children: <Widget>[
+                                          children: [
                                             Container(
                                               width: ((70 / 2) *
                                                   animationController!.value),
@@ -488,11 +488,11 @@ class MediterranesnDietView extends StatelessWidget {
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.end,
                               crossAxisAlignment: CrossAxisAlignment.center,
-                              children: <Widget>[
+                              children: [
                                 Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: <Widget>[
+                                  children: [
                                     Text(
                                       'Fat',
                                       style: TextStyle(
@@ -516,7 +516,7 @@ class MediterranesnDietView extends StatelessWidget {
                                               Radius.circular(4.0)),
                                         ),
                                         child: Row(
-                                          children: <Widget>[
+                                          children: [
                                             Container(
                                               width: ((70 / 2.5) *
                                                   animationController!.value),

@@ -1,4 +1,4 @@
-import 'package:best_flutter_ui_templates/app_theme.dart';
+import 'package:freshh/app_theme.dart';
 import 'package:flutter/material.dart';
 
 class HelpScreen extends StatefulWidget {
@@ -24,7 +24,7 @@ class _HelpScreenState extends State<HelpScreen> {
           backgroundColor:
               isLightMode ? AppTheme.nearlyWhite : AppTheme.nearlyBlack,
           body: Column(
-            children: <Widget>[
+            children: [
               Container(
                 padding: EdgeInsets.only(
                     top: MediaQuery.of(context).padding.top,

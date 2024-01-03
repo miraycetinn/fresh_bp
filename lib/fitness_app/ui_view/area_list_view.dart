@@ -55,7 +55,7 @@ class _AreaListViewState extends State<AreaListView>
                       left: 16, right: 16, top: 16, bottom: 16),
                   physics: const BouncingScrollPhysics(),
                   scrollDirection: Axis.vertical,
-                  children: List<Widget>.generate(
+                  children: List.generate(
                     areaListData.length,
                     (int index) {
                       final int count = areaListData.length;
@@ -138,7 +138,7 @@ class AreaView extends StatelessWidget {
                   splashColor: FitnessAppTheme.nearlyDarkBlue.withOpacity(0.2),
                   onTap: () {},
                   child: Column(
-                    children: <Widget>[
+                    children: [
                       Padding(
                         padding:
                             const EdgeInsets.only(top: 16, left: 16, right: 16),

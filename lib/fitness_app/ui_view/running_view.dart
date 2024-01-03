@@ -19,13 +19,13 @@ class RunningView extends StatelessWidget {
             transform: new Matrix4.translationValues(
                 0.0, 30 * (1.0 - animation!.value), 0.0),
             child: Column(
-              children: <Widget>[
+              children: [
                 Padding(
                   padding: const EdgeInsets.only(
                       left: 24, right: 24, top: 0, bottom: 0),
                   child: Stack(
                     clipBehavior: Clip.none,
-                    children: <Widget>[
+                    children: [
                       Padding(
                         padding: const EdgeInsets.only(top: 16, bottom: 16),
                         child: Container(
@@ -45,7 +45,7 @@ class RunningView extends StatelessWidget {
                           ),
                           child: Stack(
                             alignment: Alignment.topLeft,
-                            children: <Widget>[
+                            children: [
                               ClipRRect(
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(8.0)),
@@ -60,9 +60,9 @@ class RunningView extends StatelessWidget {
                               ),
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
-                                children: <Widget>[
+                                children: [
                                   Row(
-                                    children: <Widget>[
+                                    children: [
                                       Padding(
                                         padding: const EdgeInsets.only(
                                           left: 100,

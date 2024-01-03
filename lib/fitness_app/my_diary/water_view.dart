@@ -1,6 +1,6 @@
-import 'package:best_flutter_ui_templates/fitness_app/ui_view/wave_view.dart';
-import 'package:best_flutter_ui_templates/fitness_app/fitness_app_theme.dart';
-import 'package:best_flutter_ui_templates/main.dart';
+import 'package:freshh/fitness_app/ui_view/wave_view.dart';
+import 'package:freshh/fitness_app/fitness_app_theme.dart';
+import 'package:freshh/main.dart';
 import 'package:flutter/material.dart';
 
 class WaterView extends StatefulWidget {
@@ -53,18 +53,18 @@ class _WaterViewState extends State<WaterView> with TickerProviderStateMixin {
                   padding: const EdgeInsets.only(
                       top: 16, left: 16, right: 16, bottom: 16),
                   child: Row(
-                    children: <Widget>[
+                    children: [
                       Expanded(
                         child: Column(
-                          children: <Widget>[
+                          children: [
                             Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.start,
-                              children: <Widget>[
+                              children: [
                                 Row(
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   crossAxisAlignment: CrossAxisAlignment.end,
-                                  children: <Widget>[
+                                  children: [
                                     Padding(
                                       padding: const EdgeInsets.only(
                                           left: 4, bottom: 3),
@@ -130,12 +130,12 @@ class _WaterViewState extends State<WaterView> with TickerProviderStateMixin {
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 crossAxisAlignment: CrossAxisAlignment.end,
-                                children: <Widget>[
+                                children: [
                                   Row(
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     crossAxisAlignment:
                                         CrossAxisAlignment.center,
-                                    children: <Widget>[
+                                    children: [
                                       Padding(
                                         padding: const EdgeInsets.only(left: 4),
                                         child: Icon(
@@ -171,7 +171,7 @@ class _WaterViewState extends State<WaterView> with TickerProviderStateMixin {
                                           MainAxisAlignment.start,
                                       crossAxisAlignment:
                                           CrossAxisAlignment.center,
-                                      children: <Widget>[
+                                      children: [
                                         SizedBox(
                                           width: 24,
                                           height: 24,
@@ -206,7 +206,7 @@ class _WaterViewState extends State<WaterView> with TickerProviderStateMixin {
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.center,
-                          children: <Widget>[
+                          children: [
                             Container(
                               decoration: BoxDecoration(
                                 color: FitnessAppTheme.nearlyWhite,

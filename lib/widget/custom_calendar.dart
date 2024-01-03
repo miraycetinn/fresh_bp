@@ -1,23 +1,18 @@
-import 'package:best_flutter_ui_templates/hotel_booking/hotel_app_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:freshh/app_theme.dart';
 import 'package:intl/intl.dart';
 
 class CustomCalendarView extends StatefulWidget {
   const CustomCalendarView(
       {Key? key,
       this.initialStartDate,
-      this.initialEndDate,
       this.startEndDateChange,
-      this.minimumDate,
-      this.maximumDate})
+ })
       : super(key: key);
 
-  final DateTime? minimumDate;
-  final DateTime? maximumDate;
   final DateTime? initialStartDate;
-  final DateTime? initialEndDate;
 
-  final Function(DateTime, DateTime)? startEndDateChange;
+  final Function(DateTime)? startEndDateChange;
 
   @override
   _CustomCalendarViewState createState() => _CustomCalendarViewState();
@@ -27,16 +22,12 @@ class _CustomCalendarViewState extends State<CustomCalendarView> {
   List<DateTime> dateList = <DateTime>[];
   DateTime currentMonthDate = DateTime.now();
   DateTime? startDate;
-  DateTime? endDate;
 
   @override
   void initState() {
     setListOfDate(currentMonthDate);
     if (widget.initialStartDate != null) {
       startDate = widget.initialStartDate;
-    }
-    if (widget.initialEndDate != null) {
-      endDate = widget.initialEndDate;
     }
     super.initState();
   }
@@ -68,12 +59,12 @@ class _CustomCalendarViewState extends State<CustomCalendarView> {
   Widget build(BuildContext context) {
     return Container(
       child: Column(
-        children: <Widget>[
+        children: [
           Padding(
             padding:
                 const EdgeInsets.only(left: 8.0, right: 8.0, top: 4, bottom: 4),
             child: Row(
-              children: <Widget>[
+              children: [
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Container(
@@ -83,7 +74,7 @@ class _CustomCalendarViewState extends State<CustomCalendarView> {
                       borderRadius:
                           const BorderRadius.all(Radius.circular(24.0)),
                       border: Border.all(
-                        color: HotelAppTheme.buildLightTheme().dividerColor,
+                        color: AppTheme.buildLightTheme().dividerColor,
                       ),
                     ),
                     child: Material(
@@ -98,7 +89,7 @@ class _CustomCalendarViewState extends State<CustomCalendarView> {
                             setListOfDate(currentMonthDate);
                           });
                         },
-                        child: Icon(
+                        child: const Icon(
                           Icons.keyboard_arrow_left,
                           color: Colors.grey,
                         ),
@@ -110,7 +101,7 @@ class _CustomCalendarViewState extends State<CustomCalendarView> {
                   child: Center(
                     child: Text(
                       DateFormat('MMMM, yyyy').format(currentMonthDate),
-                      style: TextStyle(
+                      style: const TextStyle(
                           fontWeight: FontWeight.w500,
                           fontSize: 20,
                           color: Colors.black),
@@ -126,7 +117,7 @@ class _CustomCalendarViewState extends State<CustomCalendarView> {
                       borderRadius:
                           const BorderRadius.all(Radius.circular(24.0)),
                       border: Border.all(
-                        color: HotelAppTheme.buildLightTheme().dividerColor,
+                        color: AppTheme.buildLightTheme().dividerColor,
                       ),
                     ),
                     child: Material(
@@ -141,7 +132,7 @@ class _CustomCalendarViewState extends State<CustomCalendarView> {
                             setListOfDate(currentMonthDate);
                           });
                         },
-                        child: Icon(
+                        child: const Icon(
                           Icons.keyboard_arrow_right,
                           color: Colors.grey,
                         ),
@@ -155,13 +146,13 @@ class _CustomCalendarViewState extends State<CustomCalendarView> {
           Padding(
             padding: const EdgeInsets.only(right: 8, left: 8, bottom: 8),
             child: Row(
-              children: getDaysNameUI(),
+              children: [...getDaysNameUI()],
             ),
           ),
           Padding(
             padding: const EdgeInsets.only(right: 8, left: 8),
             child: Column(
-              children: getDaysNoUI(),
+              children: [...getDaysNoUI()],
             ),
           ),
         ],
@@ -169,8 +160,8 @@ class _CustomCalendarViewState extends State<CustomCalendarView> {
     );
   }
 
-  List<Widget> getDaysNameUI() {
-    final List<Widget> listUI = <Widget>[];
+  List getDaysNameUI() {
+    final List listUI = [];
     for (int i = 0; i < 7; i++) {
       listUI.add(
         Expanded(
@@ -180,7 +171,7 @@ class _CustomCalendarViewState extends State<CustomCalendarView> {
               style: TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.w500,
-                  color: HotelAppTheme.buildLightTheme().primaryColor),
+                  color: AppTheme.buildLightTheme().primaryColor),
             ),
           ),
         ),
@@ -189,11 +180,11 @@ class _CustomCalendarViewState extends State<CustomCalendarView> {
     return listUI;
   }
 
-  List<Widget> getDaysNoUI() {
-    final List<Widget> noList = <Widget>[];
+  List getDaysNoUI() {
+    final List noList = [];
     int count = 0;
     for (int i = 0; i < dateList.length / 7; i++) {
-      final List<Widget> listUI = <Widget>[];
+      final List listUI = <Widget>[];
       for (int i = 0; i < 7; i++) {
         final DateTime date = dateList[count];
         listUI.add(
@@ -202,40 +193,26 @@ class _CustomCalendarViewState extends State<CustomCalendarView> {
               aspectRatio: 1.0,
               child: Container(
                 child: Stack(
-                  children: <Widget>[
+                  children: [
                     Padding(
                       padding: const EdgeInsets.only(top: 3, bottom: 3),
                       child: Material(
                         color: Colors.transparent,
                         child: Padding(
-                          padding: EdgeInsets.only(
+                          padding: const EdgeInsets.only(
                               top: 2,
                               bottom: 2,
-                              left: isStartDateRadius(date) ? 4 : 0,
-                              right: isEndDateRadius(date) ? 4 : 0),
+                              left: 4,
+                              right:  4 ),
                           child: Container(
                             decoration: BoxDecoration(
-                              color: startDate != null && endDate != null
-                                  ? getIsItStartAndEndDate(date) ||
-                                          getIsInRange(date)
-                                      ? HotelAppTheme.buildLightTheme()
+                              color: startDate != null
+                                      ? AppTheme.buildLightTheme()
                                           .primaryColor
                                           .withOpacity(0.4)
-                                      : Colors.transparent
-                                  : Colors.transparent,
-                              borderRadius: BorderRadius.only(
-                                bottomLeft: isStartDateRadius(date)
-                                    ? const Radius.circular(24.0)
-                                    : const Radius.circular(0.0),
-                                topLeft: isStartDateRadius(date)
-                                    ? const Radius.circular(24.0)
-                                    : const Radius.circular(0.0),
-                                topRight: isEndDateRadius(date)
-                                    ? const Radius.circular(24.0)
-                                    : const Radius.circular(0.0),
-                                bottomRight: isEndDateRadius(date)
-                                    ? const Radius.circular(24.0)
-                                    : const Radius.circular(0.0),
+                                      : Colors.transparent,
+                              borderRadius: const BorderRadius.all(
+                                Radius.circular(24.0),
                               ),
                             ),
                           ),
@@ -248,82 +225,34 @@ class _CustomCalendarViewState extends State<CustomCalendarView> {
                         borderRadius:
                             const BorderRadius.all(Radius.circular(32.0)),
                         onTap: () {
-                          if (currentMonthDate.month == date.month) {
-                            if (widget.minimumDate != null &&
-                                widget.maximumDate != null) {
-                              final DateTime newminimumDate = DateTime(
-                                  widget.minimumDate!.year,
-                                  widget.minimumDate!.month,
-                                  widget.minimumDate!.day - 1);
-                              final DateTime newmaximumDate = DateTime(
-                                  widget.maximumDate!.year,
-                                  widget.maximumDate!.month,
-                                  widget.maximumDate!.day + 1);
-                              if (date.isAfter(newminimumDate) &&
-                                  date.isBefore(newmaximumDate)) {
-                                onDateClick(date);
-                              }
-                            } else if (widget.minimumDate != null) {
-                              final DateTime newminimumDate = DateTime(
-                                  widget.minimumDate!.year,
-                                  widget.minimumDate!.month,
-                                  widget.minimumDate!.day - 1);
-                              if (date.isAfter(newminimumDate)) {
-                                onDateClick(date);
-                              }
-                            } else if (widget.maximumDate != null) {
-                              final DateTime newmaximumDate = DateTime(
-                                  widget.maximumDate!.year,
-                                  widget.maximumDate!.month,
-                                  widget.maximumDate!.day + 1);
-                              if (date.isBefore(newmaximumDate)) {
-                                onDateClick(date);
-                              }
-                            } else {
-                              onDateClick(date);
-                            }
-                          }
+                          onDateClick(date);
                         },
                         child: Padding(
                           padding: const EdgeInsets.all(2),
                           child: Container(
                             decoration: BoxDecoration(
-                              color: getIsItStartAndEndDate(date)
-                                  ? HotelAppTheme.buildLightTheme().primaryColor
-                                  : Colors.transparent,
+                              color:  Colors.transparent,
                               borderRadius:
                                   const BorderRadius.all(Radius.circular(32.0)),
                               border: Border.all(
-                                color: getIsItStartAndEndDate(date)
-                                    ? Colors.white
-                                    : Colors.transparent,
+                                color: Colors.transparent,
                                 width: 2,
                               ),
-                              boxShadow: getIsItStartAndEndDate(date)
-                                  ? <BoxShadow>[
-                                      BoxShadow(
-                                          color: Colors.grey.withOpacity(0.6),
-                                          blurRadius: 4,
-                                          offset: const Offset(0, 0)),
-                                    ]
-                                  : null,
+                              boxShadow: null,
                             ),
                             child: Center(
                               child: Text(
                                 '${date.day}',
                                 style: TextStyle(
-                                    color: getIsItStartAndEndDate(date)
-                                        ? Colors.white
-                                        : currentMonthDate.month == date.month
+                                    color: currentMonthDate.month == date.month
                                             ? Colors.black
                                             : Colors.grey.withOpacity(0.6),
                                     fontSize:
                                         MediaQuery.of(context).size.width > 360
                                             ? 18
                                             : 16,
-                                    fontWeight: getIsItStartAndEndDate(date)
-                                        ? FontWeight.bold
-                                        : FontWeight.normal),
+                                    fontWeight:
+                                         FontWeight.normal),
                               ),
                             ),
                           ),
@@ -341,10 +270,9 @@ class _CustomCalendarViewState extends State<CustomCalendarView> {
                             color: DateTime.now().day == date.day &&
                                     DateTime.now().month == date.month &&
                                     DateTime.now().year == date.year
-                                ? getIsInRange(date)
-                                    ? Colors.white
-                                    : HotelAppTheme.buildLightTheme()
-                                        .primaryColor
+                                ?
+                                     Colors.white
+
                                 : Colors.transparent,
                             shape: BoxShape.circle),
                       ),
@@ -361,94 +289,18 @@ class _CustomCalendarViewState extends State<CustomCalendarView> {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisSize: MainAxisSize.min,
-        children: listUI,
+        children:  [...listUI],
       ));
     }
     return noList;
   }
 
-  bool getIsInRange(DateTime date) {
-    if (startDate != null && endDate != null) {
-      if (date.isAfter(startDate!) && date.isBefore(endDate!)) {
-        return true;
-      } else {
-        return false;
-      }
-    } else {
-      return false;
-    }
-  }
-
-  bool getIsItStartAndEndDate(DateTime date) {
-    if (startDate != null &&
-        startDate!.day == date.day &&
-        startDate!.month == date.month &&
-        startDate!.year == date.year) {
-      return true;
-    } else if (endDate != null &&
-        endDate!.day == date.day &&
-        endDate!.month == date.month &&
-        endDate!.year == date.year) {
-      return true;
-    } else {
-      return false;
-    }
-  }
-
-  bool isStartDateRadius(DateTime date) {
-    if (startDate != null &&
-        startDate!.day == date.day &&
-        startDate!.month == date.month) {
-      return true;
-    } else if (date.weekday == 1) {
-      return true;
-    } else {
-      return false;
-    }
-  }
-
-  bool isEndDateRadius(DateTime date) {
-    if (endDate != null &&
-        endDate!.day == date.day &&
-        endDate!.month == date.month) {
-      return true;
-    } else if (date.weekday == 7) {
-      return true;
-    } else {
-      return false;
-    }
-  }
 
   void onDateClick(DateTime date) {
-    if (startDate == null) {
-      startDate = date;
-    } else if (startDate != date && endDate == null) {
-      endDate = date;
-    } else if (startDate!.day == date.day && startDate!.month == date.month) {
-      startDate = null;
-    } else if (endDate!.day == date.day && endDate!.month == date.month) {
-      endDate = null;
-    }
-    if (startDate == null && endDate != null) {
-      startDate = endDate;
-      endDate = null;
-    }
-    if (startDate != null && endDate != null) {
-      if (!endDate!.isAfter(startDate!)) {
-        final DateTime d = startDate!;
-        startDate = endDate;
-        endDate = d;
-      }
-      if (date.isBefore(startDate!)) {
-        startDate = date;
-      }
-      if (date.isAfter(endDate!)) {
-        endDate = date;
-      }
-    }
+    startDate = date;
     setState(() {
       try {
-        widget.startEndDateChange!(startDate!, endDate!);
+        widget.startEndDateChange!(startDate!);
       } catch (_) {}
     });
   }

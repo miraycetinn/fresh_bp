@@ -1,6 +1,6 @@
-import 'package:best_flutter_ui_templates/fitness_app/fitness_app_theme.dart';
-import 'package:best_flutter_ui_templates/fitness_app/models/meals_list_data.dart';
-import 'package:best_flutter_ui_templates/main.dart';
+import 'package:freshh/fitness_app/fitness_app_theme.dart';
+import 'package:freshh/fitness_app/models/meals_list_data.dart';
+import 'package:freshh/main.dart';
 import 'package:flutter/material.dart';
 
 import '../../main.dart';
@@ -106,7 +106,7 @@ class MealsView extends StatelessWidget {
             child: SizedBox(
               width: 130,
               child: Stack(
-                children: <Widget>[
+                children: [
                   Padding(
                     padding: const EdgeInsets.only(
                         top: 32, left: 8, right: 8, bottom: 16),
@@ -140,7 +140,7 @@ class MealsView extends StatelessWidget {
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
+                          children: [
                             Text(
                               mealsListData!.titleTxt,
                               textAlign: TextAlign.center,
@@ -159,7 +159,7 @@ class MealsView extends StatelessWidget {
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: <Widget>[
+                                  children: [
                                     Text(
                                       mealsListData!.meals!.join('\n'),
                                       style: TextStyle(
@@ -178,7 +178,7 @@ class MealsView extends StatelessWidget {
                                 ? Row(
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     crossAxisAlignment: CrossAxisAlignment.end,
-                                    children: <Widget>[
+                                    children: [
                                       Text(
                                         mealsListData!.kacl.toString(),
                                         textAlign: TextAlign.center,

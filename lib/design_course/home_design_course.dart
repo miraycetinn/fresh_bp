@@ -1,7 +1,7 @@
-import 'package:best_flutter_ui_templates/design_course/category_list_view.dart';
-import 'package:best_flutter_ui_templates/design_course/course_info_screen.dart';
-import 'package:best_flutter_ui_templates/design_course/popular_course_list_view.dart';
-import 'package:best_flutter_ui_templates/main.dart';
+import 'package:freshh/design_course/category_list_view.dart';
+import 'package:freshh/design_course/product_info_screen.dart';
+import 'package:freshh/design_course/product_list_view.dart';
+import 'package:freshh/main.dart';
 import 'package:flutter/material.dart';
 import 'design_course_app_theme.dart';
 
@@ -20,7 +20,7 @@ class _DesignCourseHomeScreenState extends State<DesignCourseHomeScreen> {
       child: Scaffold(
         backgroundColor: Colors.transparent,
         body: Column(
-          children: <Widget>[
+          children: [
             SizedBox(
               height: MediaQuery.of(context).padding.top,
             ),
@@ -30,7 +30,7 @@ class _DesignCourseHomeScreenState extends State<DesignCourseHomeScreen> {
                 child: Container(
                   height: MediaQuery.of(context).size.height,
                   child: Column(
-                    children: <Widget>[
+                    children: [
                       getSearchBarUI(),
                       getCategoryUI(),
                       Flexible(
@@ -51,9 +51,9 @@ class _DesignCourseHomeScreenState extends State<DesignCourseHomeScreen> {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.start,
-      children: <Widget>[
-        Padding(
-          padding: const EdgeInsets.only(top: 8.0, left: 18, right: 16),
+      children: [
+        const Padding(
+          padding: EdgeInsets.only(top: 8.0, left: 18, right: 16),
           child: Text(
             'Category',
             textAlign: TextAlign.left,
@@ -71,7 +71,7 @@ class _DesignCourseHomeScreenState extends State<DesignCourseHomeScreen> {
         Padding(
           padding: const EdgeInsets.only(left: 16, right: 16),
           child: Row(
-            children: <Widget>[
+            children: [
               getButtonUI(CategoryType.ui, categoryType == CategoryType.ui),
               const SizedBox(
                 width: 16,
@@ -104,8 +104,8 @@ class _DesignCourseHomeScreenState extends State<DesignCourseHomeScreen> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Text(
+        children: [
+          const Text(
             'Popular Course',
             textAlign: TextAlign.left,
             style: TextStyle(
@@ -116,7 +116,7 @@ class _DesignCourseHomeScreenState extends State<DesignCourseHomeScreen> {
             ),
           ),
           Flexible(
-            child: PopularCourseListView(
+            child: ProductListView(
               callBack: () {
                 moveTo();
               },
@@ -131,7 +131,7 @@ class _DesignCourseHomeScreenState extends State<DesignCourseHomeScreen> {
     Navigator.push<dynamic>(
       context,
       MaterialPageRoute<dynamic>(
-        builder: (BuildContext context) => CourseInfoScreen(),
+        builder: (BuildContext context) => ProductInfoScreen(),
       ),
     );
   }
@@ -193,7 +193,7 @@ class _DesignCourseHomeScreenState extends State<DesignCourseHomeScreen> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
+        children: [
           Container(
             width: MediaQuery.of(context).size.width * 0.75,
             height: 64,
@@ -210,12 +210,12 @@ class _DesignCourseHomeScreenState extends State<DesignCourseHomeScreen> {
                   ),
                 ),
                 child: Row(
-                  children: <Widget>[
+                  children: [
                     Expanded(
                       child: Container(
                         padding: const EdgeInsets.only(left: 16, right: 16),
                         child: TextFormField(
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontFamily: 'WorkSans',
                             fontWeight: FontWeight.bold,
                             fontSize: 16,
@@ -263,12 +263,12 @@ class _DesignCourseHomeScreenState extends State<DesignCourseHomeScreen> {
     return Padding(
       padding: const EdgeInsets.only(top: 8.0, left: 18, right: 18),
       child: Row(
-        children: <Widget>[
-          Expanded(
+        children: [
+          const Expanded(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.end,
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
+              children: [
                 Text(
                   'Choose your',
                   textAlign: TextAlign.left,

@@ -1,4 +1,4 @@
-import 'package:best_flutter_ui_templates/app_theme.dart';
+import 'package:freshh/app_theme.dart';
 import 'package:flutter/material.dart';
 
 class FeedbackScreen extends StatefulWidget {
@@ -27,7 +27,7 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
             child: SizedBox(
               height: MediaQuery.of(context).size.height,
               child: Column(
-                children: <Widget>[
+                children: [
                   Container(
                     padding: EdgeInsets.only(
                         top: MediaQuery.of(context).padding.top,

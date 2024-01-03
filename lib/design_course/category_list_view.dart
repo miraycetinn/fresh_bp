@@ -1,6 +1,6 @@
-import 'package:best_flutter_ui_templates/design_course/design_course_app_theme.dart';
-import 'package:best_flutter_ui_templates/design_course/models/category.dart';
-import 'package:best_flutter_ui_templates/main.dart';
+import 'package:freshh/design_course/design_course_app_theme.dart';
+import 'package:freshh/design_course/models/category.dart';
+import 'package:freshh/main.dart';
 import 'package:flutter/material.dart';
 
 class CategoryListView extends StatefulWidget {
@@ -109,10 +109,10 @@ class CategoryView extends StatelessWidget {
               child: SizedBox(
                 width: 280,
                 child: Stack(
-                  children: <Widget>[
+                  children: [
                     Container(
                       child: Row(
-                        children: <Widget>[
+                        children: [
                           const SizedBox(
                             width: 48,
                           ),
@@ -124,14 +124,14 @@ class CategoryView extends StatelessWidget {
                                     Radius.circular(16.0)),
                               ),
                               child: Row(
-                                children: <Widget>[
+                                children: [
                                   const SizedBox(
                                     width: 48 + 24.0,
                                   ),
                                   Expanded(
                                     child: Container(
                                       child: Column(
-                                        children: <Widget>[
+                                        children: [
                                           Padding(
                                             padding:
                                                 const EdgeInsets.only(top: 16),
@@ -159,9 +159,9 @@ class CategoryView extends StatelessWidget {
                                                       .spaceBetween,
                                               crossAxisAlignment:
                                                   CrossAxisAlignment.center,
-                                              children: <Widget>[
+                                              children: [
                                                 Text(
-                                                  '${category!.lessonCount} lesson',
+                                                  '${category!.productStock} lesson',
                                                   textAlign: TextAlign.left,
                                                   style: TextStyle(
                                                     fontWeight: FontWeight.w200,
@@ -173,7 +173,7 @@ class CategoryView extends StatelessWidget {
                                                 ),
                                                 Container(
                                                   child: Row(
-                                                    children: <Widget>[
+                                                    children: [
                                                       Text(
                                                         '${category!.rating}',
                                                         textAlign:
@@ -210,9 +210,9 @@ class CategoryView extends StatelessWidget {
                                                       .spaceBetween,
                                               crossAxisAlignment:
                                                   CrossAxisAlignment.start,
-                                              children: <Widget>[
+                                              children: [
                                                 Text(
-                                                  '\$${category!.money}',
+                                                  '\$${category!.price}',
                                                   textAlign: TextAlign.left,
                                                   style: TextStyle(
                                                     fontWeight: FontWeight.w600,
@@ -262,7 +262,7 @@ class CategoryView extends StatelessWidget {
                         padding: const EdgeInsets.only(
                             top: 24, bottom: 24, left: 16),
                         child: Row(
-                          children: <Widget>[
+                          children: [
                             ClipRRect(
                               borderRadius:
                                   const BorderRadius.all(Radius.circular(16.0)),

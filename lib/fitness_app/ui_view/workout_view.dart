@@ -1,4 +1,4 @@
-import 'package:best_flutter_ui_templates/main.dart';
+import 'package:freshh/main.dart';
 import 'package:flutter/material.dart';
 import '../fitness_app_theme.dart';
 
@@ -45,7 +45,7 @@ class WorkoutView extends StatelessWidget {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
+                    children: [
                       Text(
                         'Next workout',
                         textAlign: TextAlign.left,
@@ -79,7 +79,7 @@ class WorkoutView extends StatelessWidget {
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.end,
                           mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
+                          children: [
                             Padding(
                               padding: const EdgeInsets.only(left: 4),
                               child: Icon(

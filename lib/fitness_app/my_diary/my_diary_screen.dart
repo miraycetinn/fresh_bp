@@ -1,11 +1,14 @@
-import 'package:best_flutter_ui_templates/fitness_app/ui_view/body_measurement.dart';
-import 'package:best_flutter_ui_templates/fitness_app/ui_view/glass_view.dart';
-import 'package:best_flutter_ui_templates/fitness_app/ui_view/mediterranean_diet_view.dart';
-import 'package:best_flutter_ui_templates/fitness_app/ui_view/title_view.dart';
-import 'package:best_flutter_ui_templates/fitness_app/fitness_app_theme.dart';
-import 'package:best_flutter_ui_templates/fitness_app/my_diary/meals_list_view.dart';
-import 'package:best_flutter_ui_templates/fitness_app/my_diary/water_view.dart';
+import 'package:freshh/fitness_app/ui_view/body_measurement.dart';
+import 'package:freshh/fitness_app/ui_view/glass_view.dart';
+import 'package:freshh/fitness_app/ui_view/mediterranean_diet_view.dart';
+import 'package:freshh/fitness_app/ui_view/title_view.dart';
+import 'package:freshh/fitness_app/fitness_app_theme.dart';
+import 'package:freshh/fitness_app/my_diary/meals_list_view.dart';
+import 'package:freshh/fitness_app/my_diary/water_view.dart';
 import 'package:flutter/material.dart';
+import 'package:freshh/widget/calendar_popup_view.dart';
+import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 
 class MyDiaryScreen extends StatefulWidget {
   const MyDiaryScreen({Key? key, this.animationController}) : super(key: key);
@@ -19,9 +22,11 @@ class _MyDiaryScreenState extends State<MyDiaryScreen>
     with TickerProviderStateMixin {
   Animation<double>? topBarAnimation;
 
-  List<Widget> listViews = <Widget>[];
+  List listViews = [];
   final ScrollController scrollController = ScrollController();
   double topBarOpacity = 0.0;
+
+  DateTime startDate = DateTime.now();
 
   @override
   void initState() {
@@ -55,7 +60,22 @@ class _MyDiaryScreenState extends State<MyDiaryScreen>
     });
     super.initState();
   }
-
+  void showDemoDialog({BuildContext? context}) {
+    showDialog<dynamic>(
+      context: context!,
+      builder: (BuildContext context) => CalendarPopupView(
+        barrierDismissible: true,
+        //  maximumDate: DateTime(DateTime.now().year, DateTime.now().month, DateTime.now().day + 10),
+        initialStartDate: startDate,
+        onApplyClick: (DateTime startData) {
+          setState(() {
+            startDate = startData;
+          });
+        },
+        onCancelClick: () {},
+      ),
+    );
+  }
   void addAllListData() {
     const int count = 9;
 
@@ -81,7 +101,7 @@ class _MyDiaryScreenState extends State<MyDiaryScreen>
     );
     listViews.add(
       TitleView(
-        titleTxt: 'Meals today',
+        titleTxt: 'Skincare rutine today',
         subTxt: 'Customize',
         animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
             parent: widget.animationController!,
@@ -168,7 +188,7 @@ class _MyDiaryScreenState extends State<MyDiaryScreen>
       child: Scaffold(
         backgroundColor: Colors.transparent,
         body: Stack(
-          children: <Widget>[
+          children: [
             getMainListViewUI(),
             getAppBarUI(),
             SizedBox(
@@ -209,7 +229,7 @@ class _MyDiaryScreenState extends State<MyDiaryScreen>
 
   Widget getAppBarUI() {
     return Column(
-      children: <Widget>[
+      children: [
         AnimatedBuilder(
           animation: widget.animationController!,
           builder: (BuildContext context, Widget? child) {
@@ -233,7 +253,7 @@ class _MyDiaryScreenState extends State<MyDiaryScreen>
                     ],
                   ),
                   child: Column(
-                    children: <Widget>[
+                    children: [
                       SizedBox(
                         height: MediaQuery.of(context).padding.top,
                       ),
@@ -245,12 +265,12 @@ class _MyDiaryScreenState extends State<MyDiaryScreen>
                             bottom: 12 - 8.0 * topBarOpacity),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
+                          children: [
                             Expanded(
                               child: Padding(
                                 padding: const EdgeInsets.all(8.0),
                                 child: Text(
-                                  'My Diary',
+                                  'Fresh',
                                   textAlign: TextAlign.left,
                                   style: TextStyle(
                                     fontFamily: FitnessAppTheme.fontName,
@@ -278,33 +298,36 @@ class _MyDiaryScreenState extends State<MyDiaryScreen>
                                 ),
                               ),
                             ),
-                            Padding(
-                              padding: const EdgeInsets.only(
-                                left: 8,
-                                right: 8,
-                              ),
-                              child: Row(
-                                children: <Widget>[
-                                  Padding(
-                                    padding: const EdgeInsets.only(right: 8),
-                                    child: Icon(
-                                      Icons.calendar_today,
-                                      color: FitnessAppTheme.grey,
-                                      size: 18,
+                            InkWell(
+                              onTap: ()=>showDemoDialog(context: context),
+                              child: Padding(
+                                padding: const EdgeInsets.only(
+                                  left: 8,
+                                  right: 8,
+                                ),
+                                child: Row(
+                                  children: [
+                                    const Padding(
+                                      padding: EdgeInsets.only(right: 8),
+                                      child: Icon(
+                                        Icons.calendar_today,
+                                        color: FitnessAppTheme.grey,
+                                        size: 18,
+                                      ),
                                     ),
-                                  ),
-                                  Text(
-                                    '15 May',
-                                    textAlign: TextAlign.left,
-                                    style: TextStyle(
-                                      fontFamily: FitnessAppTheme.fontName,
-                                      fontWeight: FontWeight.normal,
-                                      fontSize: 18,
-                                      letterSpacing: -0.2,
-                                      color: FitnessAppTheme.darkerText,
+                                    Text(
+                                      DateFormat("dd MMM").format(startDate),
+                                      textAlign: TextAlign.left,
+                                      style: const TextStyle(
+                                        fontFamily: FitnessAppTheme.fontName,
+                                        fontWeight: FontWeight.normal,
+                                        fontSize: 18,
+                                        letterSpacing: -0.2,
+                                        color: FitnessAppTheme.darkerText,
+                                      ),
                                     ),
-                                  ),
-                                ],
+                                  ],
+                                ),
                               ),
                             ),
                             SizedBox(

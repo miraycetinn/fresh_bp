@@ -1,11 +1,13 @@
-import 'package:best_flutter_ui_templates/introduction_animation/components/care_view.dart';
-import 'package:best_flutter_ui_templates/introduction_animation/components/center_next_button.dart';
-import 'package:best_flutter_ui_templates/introduction_animation/components/mood_diary_vew.dart';
-import 'package:best_flutter_ui_templates/introduction_animation/components/relax_view.dart';
-import 'package:best_flutter_ui_templates/introduction_animation/components/splash_view.dart';
-import 'package:best_flutter_ui_templates/introduction_animation/components/top_back_skip_view.dart';
-import 'package:best_flutter_ui_templates/introduction_animation/components/welcome_view.dart';
+import 'package:freshh/fitness_app/fitness_app_home_screen.dart';
+import 'package:freshh/introduction_animation/components/care_view.dart';
+import 'package:freshh/introduction_animation/components/center_next_button.dart';
+import 'package:freshh/introduction_animation/components/mood_diary_vew.dart';
+import 'package:freshh/introduction_animation/components/relax_view.dart';
+import 'package:freshh/introduction_animation/components/splash_view.dart';
+import 'package:freshh/introduction_animation/components/top_back_skip_view.dart';
+import 'package:freshh/introduction_animation/components/welcome_view.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class IntroductionAnimationScreen extends StatefulWidget {
   const IntroductionAnimationScreen({Key? key}) : super(key: key);
@@ -73,7 +75,7 @@ class _IntroductionAnimationScreenState
 
   void _onSkipClick() {
     _animationController?.animateTo(0.8,
-        duration: Duration(milliseconds: 1200));
+        duration: const Duration(milliseconds: 1200));
   }
 
   void _onBackClick() {
@@ -112,6 +114,6 @@ class _IntroductionAnimationScreenState
   }
 
   void _signUpClick() {
-    Navigator.pop(context);
+    Get.to(FitnessAppHomeScreen());
   }
 }

@@ -1,4 +1,4 @@
-import 'package:best_flutter_ui_templates/fitness_app/fitness_app_theme.dart';
+import 'package:freshh/fitness_app/fitness_app_theme.dart';
 import 'package:flutter/material.dart';
 
 class BodyMeasurementView extends StatelessWidget {
@@ -37,14 +37,14 @@ class BodyMeasurementView extends StatelessWidget {
                   ],
                 ),
                 child: Column(
-                  children: <Widget>[
+                  children: [
                     Padding(
                       padding:
                           const EdgeInsets.only(top: 16, left: 16, right: 24),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
+                        children: [
                           Padding(
                             padding: const EdgeInsets.only(
                                 left: 4, bottom: 8, top: 16),
@@ -62,11 +62,11 @@ class BodyMeasurementView extends StatelessWidget {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             crossAxisAlignment: CrossAxisAlignment.center,
-                            children: <Widget>[
+                            children: [
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 crossAxisAlignment: CrossAxisAlignment.end,
-                                children: <Widget>[
+                                children: [
                                   Padding(
                                     padding: const EdgeInsets.only(
                                         left: 4, bottom: 3),
@@ -101,10 +101,10 @@ class BodyMeasurementView extends StatelessWidget {
                               Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 crossAxisAlignment: CrossAxisAlignment.end,
-                                children: <Widget>[
+                                children: [
                                   Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
-                                    children: <Widget>[
+                                    children: [
                                       Icon(
                                         Icons.access_time,
                                         color: FitnessAppTheme.grey
@@ -167,12 +167,12 @@ class BodyMeasurementView extends StatelessWidget {
                       padding: const EdgeInsets.only(
                           left: 24, right: 24, top: 8, bottom: 16),
                       child: Row(
-                        children: <Widget>[
+                        children: [
                           Expanded(
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.start,
-                              children: <Widget>[
+                              children: [
                                 Text(
                                   '185 cm',
                                   textAlign: TextAlign.center,
@@ -205,11 +205,11 @@ class BodyMeasurementView extends StatelessWidget {
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.center,
-                              children: <Widget>[
+                              children: [
                                 Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: <Widget>[
+                                  children: [
                                     Text(
                                       '27.3 BMI',
                                       textAlign: TextAlign.center,
@@ -244,11 +244,11 @@ class BodyMeasurementView extends StatelessWidget {
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.end,
                               crossAxisAlignment: CrossAxisAlignment.center,
-                              children: <Widget>[
+                              children: [
                                 Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   crossAxisAlignment: CrossAxisAlignment.end,
-                                  children: <Widget>[
+                                  children: [
                                     Text(
                                       '20%',
                                       style: TextStyle(

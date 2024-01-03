@@ -1,7 +1,7 @@
 import 'dart:math' as math;
-import 'package:best_flutter_ui_templates/fitness_app/fitness_app_theme.dart';
-import 'package:best_flutter_ui_templates/fitness_app/models/tabIcon_data.dart';
-import 'package:best_flutter_ui_templates/main.dart';
+import 'package:freshh/fitness_app/fitness_app_theme.dart';
+import 'package:freshh/fitness_app/models/tabIcon_data.dart';
+import 'package:freshh/main.dart';
 import 'package:flutter/material.dart';
 
 import '../../main.dart';
@@ -37,7 +37,7 @@ class _BottomBarViewState extends State<BottomBarView>
   Widget build(BuildContext context) {
     return Stack(
       alignment: AlignmentDirectional.bottomCenter,
-      children: <Widget>[
+      children: [
         AnimatedBuilder(
           animation: animationController!,
           builder: (BuildContext context, Widget? child) {
@@ -54,14 +54,14 @@ class _BottomBarViewState extends State<BottomBarView>
                             .value *
                         38.0),
                 child: Column(
-                  children: <Widget>[
+                  children: [
                     SizedBox(
                       height: 62,
                       child: Padding(
                         padding:
                             const EdgeInsets.only(left: 8, right: 8, top: 4),
                         child: Row(
-                          children: <Widget>[
+                          children: [
                             Expanded(
                               child: TabIcons(
                                   tabIconData: widget.tabIconsList?[0],
@@ -245,7 +245,7 @@ class _TabIconsState extends State<TabIcons> with TickerProviderStateMixin {
           child: IgnorePointer(
             child: Stack(
               alignment: AlignmentDirectional.center,
-              children: <Widget>[
+              children: [
                 ScaleTransition(
                   alignment: Alignment.center,
                   scale: Tween<double>(begin: 0.88, end: 1.0).animate(

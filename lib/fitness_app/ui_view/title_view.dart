@@ -1,4 +1,4 @@
-import 'package:best_flutter_ui_templates/fitness_app/fitness_app_theme.dart';
+import 'package:freshh/fitness_app/fitness_app_theme.dart';
 import 'package:flutter/material.dart';
 
 class TitleView extends StatelessWidget {
@@ -29,7 +29,7 @@ class TitleView extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.only(left: 24, right: 24),
                 child: Row(
-                  children: <Widget>[
+                  children: [
                     Expanded(
                       child: Text(
                         titleTxt,
@@ -50,7 +50,7 @@ class TitleView extends StatelessWidget {
                       child: Padding(
                         padding: const EdgeInsets.only(left: 8),
                         child: Row(
-                          children: <Widget>[
+                          children: [
                             Text(
                               subTxt,
                               textAlign: TextAlign.left,
