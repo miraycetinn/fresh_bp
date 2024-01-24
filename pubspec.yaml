@@ -38,6 +38,15 @@ dependencies:
   animations: ^2.0.3
   flutter_svg: ^0.22.0
   fl_chart: ^0.35.0
+  firebase_core: ^2.24.2
+  cloud_firestore: ^4.14.0
+  firebase_auth: ^4.16.0
+  cloud_firestore_odm: ^1.0.0-dev.82
+  json_annotation: ^4.8.1
+  flutter_map: ^4.0.0
+  latlong2: ^0.8.2
+  google_maps_flutter_web: ^0.5.4+1
+  google_maps_flutter: ^2.3.0
 
 
 fonts:
@@ -55,6 +64,9 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^2.0.0
+  build_runner: ^2.3.3
+  cloud_firestore_odm_generator: ^1.0.0-dev.82
+  json_serializable: ^6.6.2
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:freshh/app_theme.dart';
+import 'package:freshh/models/user/user.dart';
 import 'package:intl/intl.dart';
 
 class CustomCalendarView extends StatefulWidget {
@@ -13,7 +14,6 @@ class CustomCalendarView extends StatefulWidget {
   final DateTime? initialStartDate;
 
   final Function(DateTime)? startEndDateChange;
-
   @override
   _CustomCalendarViewState createState() => _CustomCalendarViewState();
 }

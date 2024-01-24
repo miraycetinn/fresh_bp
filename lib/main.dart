@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:freshh/introduction_animation/introduction_animation_screen.dart';
+import 'package:freshh/features/introduction_animation/introduction_animation_screen.dart';
 import 'package:get/get.dart'; // Get paketini ekleyin
 import 'screens/water_screen.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(GetMaterialApp(
     initialRoute: '/home',
     getPages: [

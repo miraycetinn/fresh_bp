@@ -1,19 +1,19 @@
-import 'package:freshh/fitness_app/ui_view/body_measurement.dart';
-import 'package:freshh/fitness_app/ui_view/glass_view.dart';
-import 'package:freshh/fitness_app/ui_view/mediterranean_diet_view.dart';
-import 'package:freshh/fitness_app/ui_view/title_view.dart';
-import 'package:freshh/fitness_app/fitness_app_theme.dart';
-import 'package:freshh/fitness_app/my_diary/meals_list_view.dart';
-import 'package:freshh/fitness_app/my_diary/water_view.dart';
+import 'package:freshh/features/core/header/header.dart';
+import 'package:freshh/features/home_screen/components/skincares_list_view.dart';
+import 'package:freshh/features/home_screen/components/water_view.dart';
+import 'package:freshh/features/home_screen/components/body_measurement.dart';
+import 'package:freshh/features/home_screen/components/glass_view.dart';
+import 'package:freshh/features/home_screen/components/title_view.dart';
+import 'package:freshh/fitness_app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:freshh/widget/calendar_popup_view.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 
 class SkinHomeScreen extends StatefulWidget {
-  const SkinHomeScreen({Key? key, this.animationController}) : super(key: key);
+  const SkinHomeScreen({Key? key, required this.animationController}) : super(key: key);
 
-  final AnimationController? animationController;
+  final AnimationController animationController;
 
   @override
   _SkinHomeScreenState createState() => _SkinHomeScreenState();
@@ -33,7 +33,7 @@ class _SkinHomeScreenState extends State<SkinHomeScreen>
   void initState() {
     topBarAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
         CurvedAnimation(
-            parent: widget.animationController!,
+            parent: widget.animationController,
             curve: const Interval(0, 0.5, curve: Curves.fastOutSlowIn)));
     addAllListData();
 
@@ -82,43 +82,24 @@ class _SkinHomeScreenState extends State<SkinHomeScreen>
   void addAllListData() {
     const int count = 9;
 
-    listViews.add(
-      TitleView(
-        titleTxt: 'Mediterranean diet',
-        subTxt: 'Details',
-        animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
-            parent: widget.animationController!,
-            curve: const Interval((1 / count) * 0, 1.0,
-                curve: Curves.fastOutSlowIn))),
-        animationController: widget.animationController!,
-      ),
-    );
-    listViews.add(
-      MediterranesnDietView(
-        animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
-            parent: widget.animationController!,
-            curve: const Interval((1 / count) * 1, 1.0,
-                curve: Curves.fastOutSlowIn))),
-        animationController: widget.animationController!,
-      ),
-    );
+
     listViews.add(
       TitleView(
         titleTxt: 'Skincare rutine today',
         subTxt: 'Customize',
         animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
-            parent: widget.animationController!,
+            parent: widget.animationController,
             curve: const Interval((1 / count) * 2, 1.0,
                 curve: Curves.fastOutSlowIn))),
-        animationController: widget.animationController!,
+        animationController: widget.animationController,
       ),
     );
 
     listViews.add(
-      MealsListView(
+      SkincareListView(
         mainScreenAnimation: Tween<double>(begin: 0.0, end: 1.0).animate(
             CurvedAnimation(
-                parent: widget.animationController!,
+                parent: widget.animationController,
                 curve: const Interval((1 / count) * 3, 1.0,
                     curve: Curves.fastOutSlowIn))),
         mainScreenAnimationController: widget.animationController,
@@ -130,20 +111,20 @@ class _SkinHomeScreenState extends State<SkinHomeScreen>
         titleTxt: 'Body measurement',
         subTxt: 'Today',
         animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
-            parent: widget.animationController!,
+            parent: widget.animationController,
             curve: const Interval((1 / count) * 4, 1.0,
                 curve: Curves.fastOutSlowIn))),
-        animationController: widget.animationController!,
+        animationController: widget.animationController,
       ),
     );
 
     listViews.add(
       BodyMeasurementView(
         animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
-            parent: widget.animationController!,
+            parent: widget.animationController,
             curve: const Interval((1 / count) * 5, 1.0,
                 curve: Curves.fastOutSlowIn))),
-        animationController: widget.animationController!,
+        animationController: widget.animationController,
       ),
     );
     listViews.add(
@@ -151,10 +132,10 @@ class _SkinHomeScreenState extends State<SkinHomeScreen>
         titleTxt: 'Water',
         subTxt: 'Aqua SmartBottle',
         animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
-            parent: widget.animationController!,
+            parent: widget.animationController,
             curve: const Interval((1 / count) * 6, 1.0,
                 curve: Curves.fastOutSlowIn))),
-        animationController: widget.animationController!,
+        animationController: widget.animationController,
       ),
     );
 
@@ -162,20 +143,20 @@ class _SkinHomeScreenState extends State<SkinHomeScreen>
       WaterView(
         mainScreenAnimation: Tween<double>(begin: 0.0, end: 1.0).animate(
             CurvedAnimation(
-                parent: widget.animationController!,
+                parent: widget.animationController,
                 curve: const Interval((1 / count) * 7, 1.0,
                     curve: Curves.fastOutSlowIn))),
-        mainScreenAnimationController: widget.animationController!,
+        mainScreenAnimationController: widget.animationController,
       ),
     );
     listViews.add(
       GlassView(
           animation: Tween<double>(begin: 0.0, end: 1.0).animate(
               CurvedAnimation(
-                  parent: widget.animationController!,
+                  parent: widget.animationController,
                   curve: const Interval((1 / count) * 8, 1.0,
                       curve: Curves.fastOutSlowIn))),
-          animationController: widget.animationController!),
+          animationController: widget.animationController),
     );
   }
 
@@ -193,7 +174,7 @@ class _SkinHomeScreenState extends State<SkinHomeScreen>
         body: Stack(
           children: [
             getMainListViewUI(),
-            getAppBarUI(),
+            Header(animationController: widget.animationController,scrollController: scrollController,),
             SizedBox(
               height: MediaQuery.of(context).padding.bottom,
             )
@@ -221,7 +202,7 @@ class _SkinHomeScreenState extends State<SkinHomeScreen>
             itemCount: listViews.length,
             scrollDirection: Axis.vertical,
             itemBuilder: (BuildContext context, int index) {
-              widget.animationController?.forward();
+              widget.animationController.forward();
               return listViews[index];
             },
           );
@@ -234,7 +215,7 @@ class _SkinHomeScreenState extends State<SkinHomeScreen>
     return Column(
       children: [
         AnimatedBuilder(
-          animation: widget.animationController!,
+          animation: widget.animationController,
           builder: (BuildContext context, Widget? child) {
             return FadeTransition(
               opacity: topBarAnimation!,
