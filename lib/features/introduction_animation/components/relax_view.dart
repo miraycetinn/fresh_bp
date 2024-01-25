@@ -76,7 +76,7 @@ class RelaxView extends StatelessWidget {
               SlideTransition(
                 position: _relaxAnimation,
                 child: Text(
-                  "Relax",
+                  "Track Your Health",
                   style: TextStyle(fontSize: 26.0, fontWeight: FontWeight.bold),
                 ),
               ),

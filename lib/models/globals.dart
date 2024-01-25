@@ -37,7 +37,7 @@ static List<SkincareListData> tabIconsList = <SkincareListData>[
   SkincareListData(
     id: '2',
     imagePath: 'https://cdn-icons-png.flaticon.com/512/6608/6608101.png',
-    titleTxt: 'Snack',
+    titleTxt: 'Face Cream',
     startColor: '#FE95B6',
     dateTime: DateTime.now(),
 
@@ -46,7 +46,7 @@ static List<SkincareListData> tabIconsList = <SkincareListData>[
   SkincareListData(
     id: '4',
     imagePath: 'https://cdn-icons-png.flaticon.com/512/6608/6608101.png',
-    titleTxt: 'Dinner',
+    titleTxt: 'Sunscreen',
     startColor: '#6F72CA',
     dateTime: DateTime.now(),
 

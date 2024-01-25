@@ -38,7 +38,7 @@ class _SplashViewState extends State<SplashView> {
             Padding(
               padding: EdgeInsets.only(top: 8.0, bottom: 8.0),
               child: Text(
-                "Clearhead",
+                "Take Care of Yourself",
                 style: TextStyle(fontSize: 25.0, fontWeight: FontWeight.bold),
               ),
             ),

@@ -34,7 +34,7 @@ class _MyDiaryScreenState extends State<MyDiaryScreen>
 
     listViews.add(
       TitleView(
-        titleTxt: 'Skincare routine day',
+        titleTxt: 'Morning Routine',
         subTxt: 'History',
         animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
             parent: widget.animationController,
@@ -56,7 +56,7 @@ class _MyDiaryScreenState extends State<MyDiaryScreen>
     );
     listViews.add(
       TitleView(
-        titleTxt: 'Skincare routine night',
+        titleTxt: 'Night Routine',
         subTxt: 'History',
         animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
             parent: widget.animationController,

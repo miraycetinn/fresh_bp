@@ -80,7 +80,7 @@ class MoodDiaryVew extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                "Mood Dairy",
+                "Track Your Progress",
                 style: TextStyle(fontSize: 26.0, fontWeight: FontWeight.bold),
               ),
               SlideTransition(
