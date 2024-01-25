@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:freshh/features/Buttons/button_styles.dart';
+import 'package:freshh/features/account/components/Buttons/button_styles.dart';
 
 enum PrimaryButtonSizes { small, medium, large }
 

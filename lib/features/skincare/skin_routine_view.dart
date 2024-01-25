@@ -1,14 +1,22 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:freshh/features/skincare/components/skincare_routine_item_view.dart';
 import 'package:freshh/models/globals.dart';
+import 'package:freshh/models/morning_routine/morning_routine.dart';
+import 'package:freshh/models/night_routine/night_routine.dart';
 
 import '../../models/skincares_list_data/skincares_list_data.dart';
 
 class SkincareRoutineView extends StatefulWidget {
   const SkincareRoutineView(
-      {Key? key, this.mainScreenAnimationController, this.mainScreenAnimation})
+      {Key? key,
+      this.mainScreenAnimationController,
+      this.mainScreenAnimation,
+      required this.isMorning})
       : super(key: key);
 
+  final bool isMorning;
   final AnimationController? mainScreenAnimationController;
   final Animation<double>? mainScreenAnimation;
 
@@ -50,40 +58,126 @@ class _SkincareRoutineViewState extends State<SkincareRoutineView>
             transform: Matrix4.translationValues(
                 0.0, 30 * (1.0 - widget.mainScreenAnimation!.value), 0.0),
             child: Container(
-              height: 300,
-              width: double.infinity,
-              child: GridView.builder(
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2, // number of items in each row
-                  mainAxisSpacing: 8.0, // spacing between rows
-                  crossAxisSpacing: 8.0, // spacing between columns
-                ),
-                padding: const EdgeInsets.only(
-                    top: 10, bottom: 0, right: 16, left: 16),
-                itemCount: skincaresListData.length,
-                scrollDirection: Axis.vertical,
-                itemBuilder: (BuildContext context, int index) {
-                  final int count = skincaresListData.length > 10
-                      ? 10
-                      : skincaresListData.length;
-                  final Animation<double> animation =
-                  Tween<double>(begin: 0.0, end: 1.0).animate(
-                      CurvedAnimation(
-                          parent: animationController!,
-                          curve: Interval((1 / count) * index, 1.0,
-                              curve: Curves.fastOutSlowIn)));
-                  animationController?.forward();
+                height: 300,
+                width: double.infinity,
+                child: FutureBuilder(
+                  builder: (context, data) {
+                    if (data.data == null) {
+                      return const Text("Veri yok yada hatalı",
+                          style: TextStyle(color: Colors.black));
+                    }
+                    return GridView.builder(
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 2, // number of items in each row
+                        mainAxisSpacing: 8.0, // spacing between rows
+                        crossAxisSpacing: 8.0, // spacing between columns
+                      ),
+                      padding: const EdgeInsets.only(
+                          top: 10, bottom: 0, right: 16, left: 16),
+                      itemCount: data.data!.docs.length,
+                      scrollDirection: Axis.vertical,
+                      itemBuilder: (BuildContext context, int index) {
+                        final int count = data.data!.docs.length > 10
+                            ? 10
+                            : data.data!.docs.length;
+                        final Animation<double> animation =
+                            Tween<double>(begin: 0.0, end: 1.0).animate(
+                                CurvedAnimation(
+                                    parent: animationController!,
+                                    curve: Interval((1 / count) * index, 1.0,
+                                        curve: Curves.fastOutSlowIn)));
+                        animationController?.forward();
 
-                  return  Center(
-                    child: SkincareRoutineItemView(
-                      skincaresListData: skincaresListData[index],
-                      animation: animation,
-                      animationController: animationController!,
-                    ),
-                  );
-                },
-              ),
-            ),
+                        return Center(
+                          child: InkWell(
+                            onTap: () {
+                              if(widget.isMorning){
+                                MorningRoutineRef.doc(
+                                    FirebaseAuth.instance.currentUser!.uid)
+                                    .get()
+                                    .then((value) {
+                                      if(value.data!.skincaresListRef.contains(data.data!.docs[index].id)){
+                                        var where = value.data!.skincaresListRef.indexOf(data.data!.docs[index].id);
+                                        value.data!.skincaresListRef
+                                            .removeAt(where);
+                                        value.data!.skincaresListUseState.removeAt(where);
+                                        MorningRoutineRef.doc(FirebaseAuth
+                                            .instance.currentUser!.uid)
+                                            .set(
+                                            value.data!, SetOptions(merge: true));
+                                      }
+                                      else  {
+                                        value.data!.skincaresListRef
+                                            .add(data.data!.docs[index].id);
+                                        value.data!.skincaresListUseState.add(false);
+                                        MorningRoutineRef.doc(FirebaseAuth
+                                            .instance.currentUser!.uid)
+                                            .set(
+                                            value.data!, SetOptions(merge: true));
+                                      }
+                                }).onError((error, stackTrace) {
+                                  MorningRoutineRef.doc(
+                                      FirebaseAuth.instance.currentUser!.uid)
+                                      .set(
+                                      MorningRoutine([false],
+                                          id: FirebaseAuth
+                                              .instance.currentUser!.uid,
+                                          skincaresListRef: [data.data!.docs[index].id],
+                                          dateTime: DateTime.now()),
+                                      SetOptions(merge: true));
+                                });
+                              }
+                              else{
+                                NightRoutineRef.doc(
+                                    FirebaseAuth.instance.currentUser!.uid)
+                                    .get()
+                                    .then((value) {
+                                  if(value.data!.skincaresListRef.contains(data.data!.docs[index].id)){
+                                    var where = value.data!.skincaresListRef.indexOf(data.data!.docs[index].id);
+                                    value.data!.skincaresListRef
+                                        .removeAt(where);
+                                    value.data!.skincaresListUseState.removeAt(where);
+                                    NightRoutineRef.doc(FirebaseAuth
+                                        .instance.currentUser!.uid)
+                                        .set(
+                                        value.data!, SetOptions(merge: true));
+                                  }
+                                  else  {
+                                    value.data!.skincaresListRef
+                                        .add(data.data!.docs[index].id);
+                                    value.data!.skincaresListUseState.add(false);
+                                    NightRoutineRef.doc(FirebaseAuth
+                                        .instance.currentUser!.uid)
+                                        .set(
+                                        value.data!, SetOptions(merge: true));
+                                  }
+                                }).onError((error, stackTrace) {
+                                  NightRoutineRef.doc(
+                                      FirebaseAuth.instance.currentUser!.uid)
+                                      .set(
+                                      NightRoutine([false],
+                                          id: FirebaseAuth
+                                              .instance.currentUser!.uid,
+                                          skincaresListRef: [data.data!.docs[index].id],
+                                          dateTime: DateTime.now()),
+                                      SetOptions(merge: true));
+                                });
+                              }
+
+                            },
+                            child: SkincareRoutineItemView(
+                              skincaresListData: data.data!.docs[index].data,
+                              animation: animation,
+                              animationController: animationController!,
+                            ),
+                          ),
+                        );
+                      },
+                    );
+                  },
+                  future: SkincareListDataRef.get(),
+                )),
           ),
         );
       },

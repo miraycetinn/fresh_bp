@@ -5,7 +5,7 @@ import 'package:freshh/features/home_screen/components/title_view.dart';
 import 'package:freshh/features/products/product_list_view.dart';
 import 'package:get/get.dart';
 
-import '../../fitness_app_theme.dart';
+import '../../themes/freshh_app_theme.dart';
 
 class ProductsScreen extends StatefulWidget {
   const ProductsScreen({Key? key, required this.animationController})
@@ -90,7 +90,7 @@ class _ProductsScreenState extends State<ProductsScreen>
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: FitnessAppTheme.background,
+      color: FreshhAppTheme.background,
       child: Scaffold(
         backgroundColor: Colors.transparent,
         body: Stack(

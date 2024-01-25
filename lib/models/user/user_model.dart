@@ -3,7 +3,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cloud_firestore_odm/cloud_firestore_odm.dart';
 
 // This doesn't exist yet...! See "Next Steps"
-part 'user.g.dart';
+part 'user_model.g.dart';
 
 const firestoreSerializable = JsonSerializable(
   converters: firestoreJsonConverters,
@@ -14,8 +14,8 @@ const firestoreSerializable = JsonSerializable(
 );
 
 @firestoreSerializable
-class User {
-  User({
+class UserModel {
+  UserModel({
     required this.id,
     required this.name,
     required this.surname,
@@ -29,9 +29,9 @@ class User {
   final String email;
   final String password;
 
-  factory User.fromJson(Map<String, Object?> json) => _$UserFromJson(json);
-  Map<String, Object?> toJson() => _$UserToJson(this);
+  factory UserModel.fromJson(Map<String, Object?> json) => _$UserModelFromJson(json);
+  Map<String, Object?> toJson() => _$UserModelToJson(this);
 
 }
-@Collection<User>('Users')
-final usersRef = UserCollectionReference();
+@Collection<UserModel>('Users')
+final usersRef = UserModelCollectionReference();

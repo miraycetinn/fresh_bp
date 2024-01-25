@@ -1,7 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:freshh/fitness_app_theme.dart';
+import 'package:freshh/themes/freshh_app_theme.dart';
 import 'package:freshh/models/globals.dart';
 
 class BodyMeasurementView extends StatelessWidget {
@@ -24,10 +24,10 @@ class BodyMeasurementView extends StatelessWidget {
             weight.toString(),
             textAlign: TextAlign.center,
             style: const TextStyle(
-              fontFamily: FitnessAppTheme.fontName,
+              fontFamily: FreshhAppTheme.fontName,
               fontWeight: FontWeight.w600,
               fontSize: 32,
-              color: FitnessAppTheme.nearlyDarkBlue,
+              color: FreshhAppTheme.nearlyDarkBlue,
             ),
           ),
         ),
@@ -37,11 +37,11 @@ class BodyMeasurementView extends StatelessWidget {
             'Ibs',
             textAlign: TextAlign.center,
             style: TextStyle(
-              fontFamily: FitnessAppTheme.fontName,
+              fontFamily: FreshhAppTheme.fontName,
               fontWeight: FontWeight.w500,
               fontSize: 18,
               letterSpacing: -0.2,
-              color: FitnessAppTheme.nearlyDarkBlue,
+              color: FreshhAppTheme.nearlyDarkBlue,
             ),
           ),
         ),
@@ -61,11 +61,11 @@ class BodyMeasurementView extends StatelessWidget {
             '$height cm',
             textAlign: TextAlign.center,
             style: const TextStyle(
-              fontFamily: FitnessAppTheme.fontName,
+              fontFamily: FreshhAppTheme.fontName,
               fontWeight: FontWeight.w500,
               fontSize: 16,
               letterSpacing: -0.2,
-              color: FitnessAppTheme.darkText,
+              color: FreshhAppTheme.darkText,
             ),
           ),
           Padding(
@@ -74,10 +74,10 @@ class BodyMeasurementView extends StatelessWidget {
               'Height',
               textAlign: TextAlign.center,
               style: TextStyle(
-                fontFamily: FitnessAppTheme.fontName,
+                fontFamily: FreshhAppTheme.fontName,
                 fontWeight: FontWeight.w600,
                 fontSize: 12,
-                color: FitnessAppTheme.grey.withOpacity(0.5),
+                color: FreshhAppTheme.grey.withOpacity(0.5),
               ),
             ),
           ),
@@ -104,11 +104,11 @@ class BodyMeasurementView extends StatelessWidget {
                 '${calculateBMI(weight, height).toStringAsFixed(1)} BMI',
                 textAlign: TextAlign.center,
                 style: const TextStyle(
-                  fontFamily: FitnessAppTheme.fontName,
+                  fontFamily: FreshhAppTheme.fontName,
                   fontWeight: FontWeight.w500,
                   fontSize: 16,
                   letterSpacing: -0.2,
-                  color: FitnessAppTheme.darkText,
+                  color: FreshhAppTheme.darkText,
                 ),
               ),
               Padding(
@@ -117,10 +117,10 @@ class BodyMeasurementView extends StatelessWidget {
                   'Overweight',
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    fontFamily: FitnessAppTheme.fontName,
+                    fontFamily: FreshhAppTheme.fontName,
                     fontWeight: FontWeight.w600,
                     fontSize: 12,
-                    color: FitnessAppTheme.grey.withOpacity(0.5),
+                    color: FreshhAppTheme.grey.withOpacity(0.5),
                   ),
                 ),
               ),
@@ -146,11 +146,11 @@ class BodyMeasurementView extends StatelessWidget {
               Text(
                 '$bodyFat%',
                 style: const TextStyle(
-                  fontFamily: FitnessAppTheme.fontName,
+                  fontFamily: FreshhAppTheme.fontName,
                   fontWeight: FontWeight.w500,
                   fontSize: 16,
                   letterSpacing: -0.2,
-                  color: FitnessAppTheme.darkText,
+                  color: FreshhAppTheme.darkText,
                 ),
               ),
               Padding(
@@ -159,10 +159,10 @@ class BodyMeasurementView extends StatelessWidget {
                   'Body fat',
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    fontFamily: FitnessAppTheme.fontName,
+                    fontFamily: FreshhAppTheme.fontName,
                     fontWeight: FontWeight.w600,
                     fontSize: 12,
-                    color: FitnessAppTheme.grey.withOpacity(0.5),
+                    color: FreshhAppTheme.grey.withOpacity(0.5),
                   ),
                 ),
               ),
@@ -181,7 +181,7 @@ class BodyMeasurementView extends StatelessWidget {
       children: [
         Icon(
           Icons.access_time,
-          color: FitnessAppTheme.grey.withOpacity(0.5),
+          color: FreshhAppTheme.grey.withOpacity(0.5),
           size: 16,
         ),
         Padding(
@@ -190,11 +190,11 @@ class BodyMeasurementView extends StatelessWidget {
             '${lastModificationTime.year}/${lastModificationTime.month}/${lastModificationTime.day}  ${lastModificationTime.hour}:${lastModificationTime.minute}',
             textAlign: TextAlign.center,
             style: TextStyle(
-              fontFamily: FitnessAppTheme.fontName,
+              fontFamily: FreshhAppTheme.fontName,
               fontWeight: FontWeight.w500,
               fontSize: 14,
               letterSpacing: 0.0,
-              color: FitnessAppTheme.grey.withOpacity(0.5),
+              color: FreshhAppTheme.grey.withOpacity(0.5),
             ),
           ),
         ),
@@ -217,7 +217,7 @@ class BodyMeasurementView extends StatelessWidget {
                   left: 24, right: 24, top: 16, bottom: 18),
               child: Container(
                 decoration: BoxDecoration(
-                  color: FitnessAppTheme.white,
+                  color: FreshhAppTheme.white,
                   borderRadius: const BorderRadius.only(
                       topLeft: Radius.circular(8.0),
                       bottomLeft: Radius.circular(8.0),
@@ -225,7 +225,7 @@ class BodyMeasurementView extends StatelessWidget {
                       topRight: Radius.circular(68.0)),
                   boxShadow: <BoxShadow>[
                     BoxShadow(
-                        color: FitnessAppTheme.grey.withOpacity(0.2),
+                        color: FreshhAppTheme.grey.withOpacity(0.2),
                         offset: const Offset(1.1, 1.1),
                         blurRadius: 10.0),
                   ],
@@ -246,11 +246,11 @@ class BodyMeasurementView extends StatelessWidget {
                               'Weight',
                               textAlign: TextAlign.center,
                               style: TextStyle(
-                                  fontFamily: FitnessAppTheme.fontName,
+                                  fontFamily: FreshhAppTheme.fontName,
                                   fontWeight: FontWeight.w500,
                                   fontSize: 16,
                                   letterSpacing: -0.1,
-                                  color: FitnessAppTheme.darkText),
+                                  color: FreshhAppTheme.darkText),
                             ),
                           ),
                           Row(
@@ -270,7 +270,7 @@ class BodyMeasurementView extends StatelessWidget {
                       child: Container(
                         height: 2,
                         decoration: const BoxDecoration(
-                          color: FitnessAppTheme.background,
+                          color: FreshhAppTheme.background,
                           borderRadius: BorderRadius.all(Radius.circular(4.0)),
                         ),
                       ),

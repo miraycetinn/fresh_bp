@@ -1,23 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:freshh/app_theme.dart';
-import 'package:intl/intl.dart';
+import 'package:freshh/themes/app_theme.dart';
 
 import 'custom_calendar.dart';
 
 class CalendarPopupView extends StatefulWidget {
-  const CalendarPopupView(
-      {Key? key,
-      this.initialStartDate,
-      this.onApplyClick,
-      this.onCancelClick,
-      this.barrierDismissible = true,})
-      : super(key: key);
+  const CalendarPopupView({
+    Key? key,
+    this.initialStartDate,
+    this.onApplyClick,
+    this.onCancelClick,
+    this.barrierDismissible = true,
+  }) : super(key: key);
 
   final bool barrierDismissible;
   final DateTime? initialStartDate;
   final Function(DateTime)? onApplyClick;
 
   final Function()? onCancelClick;
+
   @override
   _CalendarPopupViewState createState() => _CalendarPopupViewState();
 }
@@ -104,8 +104,8 @@ class _CalendarPopupViewState extends State<CalendarPopupView>
                               child: Container(
                                 height: 48,
                                 decoration: BoxDecoration(
-                                  color: AppTheme.buildLightTheme()
-                                      .primaryColor,
+                                  color:
+                                      AppTheme.buildLightTheme().primaryColor,
                                   borderRadius: const BorderRadius.all(
                                       Radius.circular(24.0)),
                                   boxShadow: <BoxShadow>[

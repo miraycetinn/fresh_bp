@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:freshh/features/home_screen/components/wave_view.dart';
-import 'package:freshh/fitness_app_theme.dart';
+import 'package:freshh/themes/freshh_app_theme.dart';
 import 'package:freshh/main.dart';
 import 'package:freshh/models/globals.dart';
 
@@ -37,14 +37,14 @@ class _WaterViewState extends State<WaterView> with TickerProviderStateMixin {
                 SizedBox(
                   width: 24,
                   height: 24,
-                  child: Image.asset('assets/fitness_app/bell.png'),
+                  child: Image.asset('assets/freshh_app/bell.png'),
                 ),
                 Flexible(
                   child: Text(
                     'Your bottle is empty, refill it!.',
                     textAlign: TextAlign.start,
                     style: TextStyle(
-                      fontFamily: FitnessAppTheme.fontName,
+                      fontFamily: FreshhAppTheme.fontName,
                       fontWeight: FontWeight.w500,
                       fontSize: 12,
                       letterSpacing: 0.0,
@@ -75,7 +75,7 @@ class _WaterViewState extends State<WaterView> with TickerProviderStateMixin {
                 padding: const EdgeInsets.only(left: 4),
                 child: Icon(
                   Icons.access_time,
-                  color: FitnessAppTheme.grey.withOpacity(0.5),
+                  color: FreshhAppTheme.grey.withOpacity(0.5),
                   size: 16,
                 ),
               ),
@@ -85,11 +85,11 @@ class _WaterViewState extends State<WaterView> with TickerProviderStateMixin {
                   'Last drink ${lastDrink.hour}:${lastDrink.minute}',
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    fontFamily: FitnessAppTheme.fontName,
+                    fontFamily: FreshhAppTheme.fontName,
                     fontWeight: FontWeight.w500,
                     fontSize: 14,
                     letterSpacing: 0.0,
-                    color: FitnessAppTheme.grey.withOpacity(0.5),
+                    color: FreshhAppTheme.grey.withOpacity(0.5),
                   ),
                 ),
               ),
@@ -109,11 +109,11 @@ class _WaterViewState extends State<WaterView> with TickerProviderStateMixin {
         'of daily goal ${dailyGoal}L',
         textAlign: TextAlign.center,
         style: const TextStyle(
-          fontFamily: FitnessAppTheme.fontName,
+          fontFamily: FreshhAppTheme.fontName,
           fontWeight: FontWeight.w500,
           fontSize: 14,
           letterSpacing: 0.0,
-          color: FitnessAppTheme.darkText,
+          color: FreshhAppTheme.darkText,
         ),
       ),
     );
@@ -132,10 +132,10 @@ class _WaterViewState extends State<WaterView> with TickerProviderStateMixin {
             drankValue.toString(),
             textAlign: TextAlign.center,
             style: const TextStyle(
-              fontFamily: FitnessAppTheme.fontName,
+              fontFamily: FreshhAppTheme.fontName,
               fontWeight: FontWeight.w600,
               fontSize: 32,
-              color: FitnessAppTheme.nearlyDarkBlue,
+              color: FreshhAppTheme.nearlyDarkBlue,
             ),
           ),
         ),
@@ -145,11 +145,11 @@ class _WaterViewState extends State<WaterView> with TickerProviderStateMixin {
             'ml',
             textAlign: TextAlign.center,
             style: TextStyle(
-              fontFamily: FitnessAppTheme.fontName,
+              fontFamily: FreshhAppTheme.fontName,
               fontWeight: FontWeight.w500,
               fontSize: 18,
               letterSpacing: -0.2,
-              color: FitnessAppTheme.nearlyDarkBlue,
+              color: FreshhAppTheme.nearlyDarkBlue,
             ),
           ),
         ),
@@ -180,7 +180,7 @@ class _WaterViewState extends State<WaterView> with TickerProviderStateMixin {
                 topRight: Radius.circular(80.0)),
             boxShadow: <BoxShadow>[
               BoxShadow(
-                  color: FitnessAppTheme.grey.withOpacity(0.4),
+                  color: FreshhAppTheme.grey.withOpacity(0.4),
                   offset: const Offset(2, 2),
                   blurRadius: 4),
             ],
@@ -208,11 +208,11 @@ class _WaterViewState extends State<WaterView> with TickerProviderStateMixin {
         children: [
           Container(
             decoration: BoxDecoration(
-              color: FitnessAppTheme.nearlyWhite,
+              color: FreshhAppTheme.nearlyWhite,
               shape: BoxShape.circle,
               boxShadow: <BoxShadow>[
                 BoxShadow(
-                    color: FitnessAppTheme.nearlyDarkBlue.withOpacity(0.4),
+                    color: FreshhAppTheme.nearlyDarkBlue.withOpacity(0.4),
                     offset: const Offset(4.0, 4.0),
                     blurRadius: 8.0),
               ],
@@ -223,7 +223,7 @@ class _WaterViewState extends State<WaterView> with TickerProviderStateMixin {
                 padding: EdgeInsets.all(6.0),
                 child: Icon(
                   Icons.add,
-                  color: FitnessAppTheme.nearlyDarkBlue,
+                  color: FreshhAppTheme.nearlyDarkBlue,
                   size: 24,
                 ),
               ),
@@ -234,11 +234,11 @@ class _WaterViewState extends State<WaterView> with TickerProviderStateMixin {
           ),
           Container(
             decoration: BoxDecoration(
-              color: FitnessAppTheme.nearlyWhite,
+              color: FreshhAppTheme.nearlyWhite,
               shape: BoxShape.circle,
               boxShadow: <BoxShadow>[
                 BoxShadow(
-                    color: FitnessAppTheme.nearlyDarkBlue.withOpacity(0.4),
+                    color: FreshhAppTheme.nearlyDarkBlue.withOpacity(0.4),
                     offset: const Offset(4.0, 4.0),
                     blurRadius: 8.0),
               ],
@@ -249,7 +249,7 @@ class _WaterViewState extends State<WaterView> with TickerProviderStateMixin {
                 padding: EdgeInsets.all(6.0),
                 child: Icon(
                   Icons.remove,
-                  color: FitnessAppTheme.nearlyDarkBlue,
+                  color: FreshhAppTheme.nearlyDarkBlue,
                   size: 24,
                 ),
               ),
@@ -275,7 +275,7 @@ class _WaterViewState extends State<WaterView> with TickerProviderStateMixin {
                   left: 24, right: 24, top: 16, bottom: 18),
               child: Container(
                 decoration: BoxDecoration(
-                  color: FitnessAppTheme.white,
+                  color: FreshhAppTheme.white,
                   borderRadius: const BorderRadius.only(
                       topLeft: Radius.circular(8.0),
                       bottomLeft: Radius.circular(8.0),
@@ -283,7 +283,7 @@ class _WaterViewState extends State<WaterView> with TickerProviderStateMixin {
                       topRight: Radius.circular(68.0)),
                   boxShadow: <BoxShadow>[
                     BoxShadow(
-                        color: FitnessAppTheme.grey.withOpacity(0.2),
+                        color: FreshhAppTheme.grey.withOpacity(0.2),
                         offset: const Offset(1.1, 1.1),
                         blurRadius: 10.0),
                   ],
@@ -310,7 +310,7 @@ class _WaterViewState extends State<WaterView> with TickerProviderStateMixin {
                               child: Container(
                                 height: 2,
                                 decoration: const BoxDecoration(
-                                  color: FitnessAppTheme.background,
+                                  color: FreshhAppTheme.background,
                                   borderRadius:
                                       BorderRadius.all(Radius.circular(4.0)),
                                 ),

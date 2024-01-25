@@ -15,28 +15,28 @@ class Category {
 
   static List<Category> categoryList = <Category>[
     Category(
-      imagePath: 'assets/design_course/interFace1.png',
+      imagePath: 'assets/freshh_app/interFace1.png',
       title: 'User interface Design',
       productStock: 24,
       price: 25,
       rating: 4.3,
     ),
     Category(
-      imagePath: 'assets/design_course/interFace2.png',
+      imagePath: 'assets/freshh_app/interFace2.png',
       title: 'User interface Design',
       productStock: 22,
       price: 18,
       rating: 4.6,
     ),
     Category(
-      imagePath: 'assets/design_course/interFace1.png',
+      imagePath: 'assets/freshh_app/interFace1.png',
       title: 'User interface Design',
       productStock: 24,
       price: 25,
       rating: 4.3,
     ),
     Category(
-      imagePath: 'assets/design_course/interFace2.png',
+      imagePath: 'assets/freshh_app/interFace2.png',
       title: 'User interface Design',
       productStock: 22,
       price: 18,
@@ -46,28 +46,28 @@ class Category {
 
   static List<Category> productList = <Category>[
     Category(
-      imagePath: 'assets/design_course/interFace3.png',
+      imagePath: 'assets/freshh_app/interFace3.png',
       title: 'X makeup',
       productStock: 12,
       price: 25,
       rating: 4.8,
     ),
     Category(
-      imagePath: 'assets/design_course/interFace4.png',
+      imagePath: 'assets/freshh_app/interFace4.png',
       title: 'Y Sun Cream',
       productStock: 28,
       price: 208,
       rating: 4.9,
     ),
     Category(
-      imagePath: 'assets/design_course/interFace3.png',
+      imagePath: 'assets/freshh_app/interFace3.png',
       title: 'Z Solution',
       productStock: 12,
       price: 25,
       rating: 4.8,
     ),
     Category(
-      imagePath: 'assets/design_course/interFace4.png',
+      imagePath: 'assets/freshh_app/interFace4.png',
       title: 'T Shampoo',
       productStock: 28,
       price: 208,

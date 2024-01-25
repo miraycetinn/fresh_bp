@@ -5,7 +5,7 @@ import 'package:freshh/features/home_screen/components/glass_view.dart';
 import 'package:freshh/features/home_screen/components/skincares_list_view.dart';
 import 'package:freshh/features/home_screen/components/title_view.dart';
 import 'package:freshh/features/home_screen/components/water_view.dart';
-import 'package:freshh/fitness_app_theme.dart';
+import 'package:freshh/themes/freshh_app_theme.dart';
 
 class MyDiaryScreen extends StatefulWidget {
   const MyDiaryScreen({Key? key, required this.animationController})
@@ -46,6 +46,7 @@ class _MyDiaryScreenState extends State<MyDiaryScreen>
 
     listViews.add(
       SkincareListView(
+        isMorning: true,
         mainScreenAnimation: Tween<double>(begin: 0.0, end: 1.0).animate(
             CurvedAnimation(
                 parent: widget.animationController,
@@ -68,6 +69,7 @@ class _MyDiaryScreenState extends State<MyDiaryScreen>
 
     listViews.add(
       SkincareListView(
+        isMorning:false,
         mainScreenAnimation: Tween<double>(begin: 0.0, end: 1.0).animate(
             CurvedAnimation(
                 parent: widget.animationController,
@@ -139,7 +141,7 @@ class _MyDiaryScreenState extends State<MyDiaryScreen>
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: FitnessAppTheme.background,
+      color: FreshhAppTheme.background,
       child: Scaffold(
         backgroundColor: Colors.transparent,
         body: Stack(

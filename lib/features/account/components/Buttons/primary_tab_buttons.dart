@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:freshh/main.dart';
 
-import '../../main.dart';
 
 class PrimaryTabButton extends StatelessWidget {
   final String buttonText;

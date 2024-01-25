@@ -5,27 +5,26 @@ import 'package:freshh/features/maps/maps_screen.dart';
 import 'package:freshh/features/products/products_screen.dart';
 import 'package:freshh/features/skincare/skincare_routine_screen.dart';
 import 'package:freshh/models/tabIcon_data.dart';
-import 'package:freshh/skin_app/skin_home_screen.dart';
 import 'package:get/get.dart';
 
 import 'features/home_screen/my_diary_screen.dart';
-import 'fitness_app_theme.dart';
+import 'themes/freshh_app_theme.dart';
 
-class FitnessAppHomeScreen extends StatefulWidget {
-  const FitnessAppHomeScreen({super.key});
+class FreshhAppHomeScreen extends StatefulWidget {
+  const FreshhAppHomeScreen({super.key});
 
   @override
-  _FitnessAppHomeScreenState createState() => _FitnessAppHomeScreenState();
+  _FreshhAppHomeScreenState createState() => _FreshhAppHomeScreenState();
 }
 
-class _FitnessAppHomeScreenState extends State<FitnessAppHomeScreen>
+class _FreshhAppHomeScreenState extends State<FreshhAppHomeScreen>
     with TickerProviderStateMixin {
   late AnimationController animationController;
 
   List<TabIconData> tabIconsList = TabIconData.tabIconsList;
 
   Widget tabBody = Container(
-    color: FitnessAppTheme.background,
+    color: FreshhAppTheme.background,
   );
 
   @override
@@ -50,7 +49,7 @@ class _FitnessAppHomeScreenState extends State<FitnessAppHomeScreen>
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: FitnessAppTheme.background,
+      color: FreshhAppTheme.background,
       child: Scaffold(
         backgroundColor: Colors.transparent,
         body: FutureBuilder<bool>(

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:freshh/fitness_app_theme.dart';
+import 'package:freshh/themes/freshh_app_theme.dart';
 import 'package:freshh/models/skincares_list_data/skincares_list_data.dart';
 import 'package:freshh/main.dart';
 
@@ -26,7 +26,7 @@ class _SkincareViewState extends State<SkincareView> {
           width: 84,
           height: 84,
           decoration: BoxDecoration(
-            color: FitnessAppTheme.nearlyWhite.withOpacity(0.2),
+            color: FreshhAppTheme.nearlyWhite.withOpacity(0.2),
             shape: BoxShape.circle,
           ),
         ),
@@ -56,11 +56,11 @@ class _SkincareViewState extends State<SkincareView> {
     return widget.skincaresListData.isUsed
         ? Container(
       decoration: BoxDecoration(
-        color: FitnessAppTheme.nearlyWhite,
+        color: FreshhAppTheme.nearlyWhite,
         shape: BoxShape.circle,
         boxShadow: <BoxShadow>[
           BoxShadow(
-              color: FitnessAppTheme.nearlyBlack
+              color: FreshhAppTheme.nearlyBlack
                   .withOpacity(0.4),
               offset: const Offset(8.0, 8.0),
               blurRadius: 8.0),
@@ -80,11 +80,11 @@ class _SkincareViewState extends State<SkincareView> {
     )
         : Container(
       decoration: BoxDecoration(
-        color: FitnessAppTheme.nearlyWhite,
+        color: FreshhAppTheme.nearlyWhite,
         shape: BoxShape.circle,
         boxShadow: <BoxShadow>[
           BoxShadow(
-              color: FitnessAppTheme.nearlyBlack
+              color: FreshhAppTheme.nearlyBlack
                   .withOpacity(0.4),
               offset: const Offset(8.0, 8.0),
               blurRadius: 8.0),
@@ -156,11 +156,11 @@ class _SkincareViewState extends State<SkincareView> {
                               widget.skincaresListData.titleTxt,
                               textAlign: TextAlign.center,
                               style: const TextStyle(
-                                fontFamily: FitnessAppTheme.fontName,
+                                fontFamily: FreshhAppTheme.fontName,
                                 fontWeight: FontWeight.bold,
                                 fontSize: 16,
                                 letterSpacing: 0.2,
-                                color: FitnessAppTheme.white,
+                                color: FreshhAppTheme.white,
                               ),
                             ),
                             getControlButton(context)

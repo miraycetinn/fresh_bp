@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:freshh/features/introduction_animation/introduction_animation_screen.dart';
 import 'package:get/get.dart'; // Get paketini ekleyin
-import 'screens/water_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 
@@ -14,7 +13,6 @@ Future<void> main() async {
     initialRoute: '/home',
     getPages: [
       GetPage(name: '/home', page: () => IntroductionAnimationScreen()), // 'HomeScreen()' çağrısını değiştirin
-      GetPage(name: '/water', page: () => WaterScreen()), // 'WaterScreen()' çağrısını değiştirin
     ],
   ));
 }

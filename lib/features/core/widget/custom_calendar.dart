@@ -1,19 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:freshh/app_theme.dart';
-import 'package:freshh/models/user/user.dart';
+import 'package:freshh/themes/app_theme.dart';
 import 'package:intl/intl.dart';
 
 class CustomCalendarView extends StatefulWidget {
-  const CustomCalendarView(
-      {Key? key,
-      this.initialStartDate,
-      this.startEndDateChange,
- })
-      : super(key: key);
+  const CustomCalendarView({
+    Key? key,
+    this.initialStartDate,
+    this.startEndDateChange,
+  }) : super(key: key);
 
   final DateTime? initialStartDate;
 
   final Function(DateTime)? startEndDateChange;
+
   @override
   _CustomCalendarViewState createState() => _CustomCalendarViewState();
 }
@@ -200,17 +199,14 @@ class _CustomCalendarViewState extends State<CustomCalendarView> {
                         color: Colors.transparent,
                         child: Padding(
                           padding: const EdgeInsets.only(
-                              top: 2,
-                              bottom: 2,
-                              left: 4,
-                              right:  4 ),
+                              top: 2, bottom: 2, left: 4, right: 4),
                           child: Container(
                             decoration: BoxDecoration(
                               color: startDate != null
-                                      ? AppTheme.buildLightTheme()
-                                          .primaryColor
-                                          .withOpacity(0.4)
-                                      : Colors.transparent,
+                                  ? AppTheme.buildLightTheme()
+                                      .primaryColor
+                                      .withOpacity(0.4)
+                                  : Colors.transparent,
                               borderRadius: const BorderRadius.all(
                                 Radius.circular(24.0),
                               ),
@@ -231,7 +227,7 @@ class _CustomCalendarViewState extends State<CustomCalendarView> {
                           padding: const EdgeInsets.all(2),
                           child: Container(
                             decoration: BoxDecoration(
-                              color:  Colors.transparent,
+                              color: Colors.transparent,
                               borderRadius:
                                   const BorderRadius.all(Radius.circular(32.0)),
                               border: Border.all(
@@ -245,14 +241,13 @@ class _CustomCalendarViewState extends State<CustomCalendarView> {
                                 '${date.day}',
                                 style: TextStyle(
                                     color: currentMonthDate.month == date.month
-                                            ? Colors.black
-                                            : Colors.grey.withOpacity(0.6),
+                                        ? Colors.black
+                                        : Colors.grey.withOpacity(0.6),
                                     fontSize:
                                         MediaQuery.of(context).size.width > 360
                                             ? 18
                                             : 16,
-                                    fontWeight:
-                                         FontWeight.normal),
+                                    fontWeight: FontWeight.normal),
                               ),
                             ),
                           ),
@@ -270,9 +265,7 @@ class _CustomCalendarViewState extends State<CustomCalendarView> {
                             color: DateTime.now().day == date.day &&
                                     DateTime.now().month == date.month &&
                                     DateTime.now().year == date.year
-                                ?
-                                     Colors.white
-
+                                ? Colors.white
                                 : Colors.transparent,
                             shape: BoxShape.circle),
                       ),
@@ -289,12 +282,11 @@ class _CustomCalendarViewState extends State<CustomCalendarView> {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisSize: MainAxisSize.min,
-        children:  [...listUI],
+        children: [...listUI],
       ));
     }
     return noList;
   }
-
 
   void onDateClick(DateTime date) {
     startDate = date;

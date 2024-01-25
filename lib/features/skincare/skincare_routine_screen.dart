@@ -4,7 +4,7 @@ import 'package:freshh/features/home_screen/components/title_view.dart';
 import 'package:freshh/features/skincare/components/running_view.dart';
 import 'package:freshh/features/skincare/skin_routine_view.dart';
 
-import '../../fitness_app_theme.dart';
+import '../../themes/freshh_app_theme.dart';
 
 class SkincareRoutineScreen extends StatefulWidget {
   const SkincareRoutineScreen({Key? key, required this.animationController})
@@ -55,6 +55,7 @@ class _SkincareRoutineScreenState extends State<SkincareRoutineScreen>
 
     listViews.add(
       SkincareRoutineView(
+        isMorning: true,
         mainScreenAnimation: Tween<double>(begin: 0.0, end: 1.0).animate(
             CurvedAnimation(
                 parent: widget.animationController,
@@ -75,7 +76,9 @@ class _SkincareRoutineScreenState extends State<SkincareRoutineScreen>
     );
 
     listViews.add(
+
       SkincareRoutineView(
+        isMorning: false,
         mainScreenAnimation: Tween<double>(begin: 0.0, end: 1.0).animate(
             CurvedAnimation(
                 parent: widget.animationController,
@@ -94,7 +97,7 @@ class _SkincareRoutineScreenState extends State<SkincareRoutineScreen>
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: FitnessAppTheme.background,
+      color: FreshhAppTheme.background,
       child: Scaffold(
         backgroundColor: Colors.transparent,
         body: Stack(

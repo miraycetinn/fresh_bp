@@ -1,4 +1,4 @@
-import 'package:freshh/design_course_app_theme.dart';
+import 'package:freshh/themes/freshbp_app_theme.dart';
 import 'package:freshh/models/category.dart';
 import 'package:freshh/main.dart';
 import 'package:flutter/material.dart';
@@ -136,7 +136,7 @@ class CategoryView extends StatelessWidget {
                                                 fontWeight: FontWeight.w600,
                                                 fontSize: 16,
                                                 letterSpacing: 0.27,
-                                                color: DesignCourseAppTheme
+                                                color: FreshBPAppTheme
                                                     .darkerText,
                                               ),
                                             ),
@@ -164,14 +164,14 @@ class CategoryView extends StatelessWidget {
                                                     fontSize: 18,
                                                     letterSpacing: 0.27,
                                                     color:
-                                                        DesignCourseAppTheme
+                                                        FreshBPAppTheme
                                                             .grey,
                                                   ),
                                                 ),
                                                 const Icon(
                                                   Icons.star,
                                                   color:
-                                                      DesignCourseAppTheme
+                                                      FreshBPAppTheme
                                                           .nearlyBlue,
                                                   size: 20,
                                                 )
@@ -205,7 +205,7 @@ class CategoryView extends StatelessWidget {
                                 const BorderRadius.all(Radius.circular(16.0)),
                             boxShadow: <BoxShadow>[
                               BoxShadow(
-                                  color: DesignCourseAppTheme.grey
+                                  color: FreshBPAppTheme.grey
                                       .withOpacity(0.2),
                                   offset: const Offset(0.0, 0.0),
                                   blurRadius: 6.0),

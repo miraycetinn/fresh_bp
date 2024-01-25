@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../design_course_app_theme.dart';
+import '../../themes/freshbp_app_theme.dart';
 
 class ProductInfoScreen extends StatefulWidget {
   const ProductInfoScreen({super.key});
@@ -61,7 +61,7 @@ class _ProductInfoScreenState extends State<ProductInfoScreen>
         (MediaQuery.of(context).size.width / 1.2) +
         24.0;
     return Container(
-      color: DesignCourseAppTheme.nearlyWhite,
+      color: FreshBPAppTheme.nearlyWhite,
       child: Scaffold(
         backgroundColor: Colors.transparent,
         body: Stack(
@@ -81,13 +81,13 @@ class _ProductInfoScreenState extends State<ProductInfoScreen>
               right: 0,
               child: Container(
                 decoration: BoxDecoration(
-                  color: DesignCourseAppTheme.nearlyWhite,
+                  color: FreshBPAppTheme.nearlyWhite,
                   borderRadius: const BorderRadius.only(
                       topLeft: Radius.circular(32.0),
                       topRight: Radius.circular(32.0)),
                   boxShadow: <BoxShadow>[
                     BoxShadow(
-                        color: DesignCourseAppTheme.grey.withOpacity(0.2),
+                        color: FreshBPAppTheme.grey.withOpacity(0.2),
                         offset: const Offset(1.1, 1.1),
                         blurRadius: 10.0),
                   ],
@@ -115,7 +115,7 @@ class _ProductInfoScreenState extends State<ProductInfoScreen>
                                 fontWeight: FontWeight.w600,
                                 fontSize: 22,
                                 letterSpacing: 0.27,
-                                color: DesignCourseAppTheme.darkerText,
+                                color: FreshBPAppTheme.darkerText,
                               ),
                             ),
                           ),
@@ -133,7 +133,7 @@ class _ProductInfoScreenState extends State<ProductInfoScreen>
                                     fontWeight: FontWeight.w200,
                                     fontSize: 22,
                                     letterSpacing: 0.27,
-                                    color: DesignCourseAppTheme.nearlyBlue,
+                                    color: FreshBPAppTheme.nearlyBlue,
                                   ),
                                 ),
                                 Container(
@@ -146,12 +146,12 @@ class _ProductInfoScreenState extends State<ProductInfoScreen>
                                           fontWeight: FontWeight.w200,
                                           fontSize: 22,
                                           letterSpacing: 0.27,
-                                          color: DesignCourseAppTheme.grey,
+                                          color: FreshBPAppTheme.grey,
                                         ),
                                       ),
                                       const Icon(
                                         Icons.star,
-                                        color: DesignCourseAppTheme.nearlyBlue,
+                                        color: FreshBPAppTheme.nearlyBlue,
                                         size: 24,
                                       ),
                                     ],
@@ -187,7 +187,7 @@ class _ProductInfoScreenState extends State<ProductInfoScreen>
                                     fontWeight: FontWeight.w200,
                                     fontSize: 14,
                                     letterSpacing: 0.27,
-                                    color: DesignCourseAppTheme.grey,
+                                    color: FreshBPAppTheme.grey,
                                   ),
                                   maxLines: 3,
                                   overflow: TextOverflow.ellipsis,
@@ -210,17 +210,17 @@ class _ProductInfoScreenState extends State<ProductInfoScreen>
                                     height: 48,
                                     child: Container(
                                       decoration: BoxDecoration(
-                                        color: DesignCourseAppTheme.nearlyWhite,
+                                        color: FreshBPAppTheme.nearlyWhite,
                                         borderRadius: const BorderRadius.all(
                                           Radius.circular(16.0),
                                         ),
                                         border: Border.all(
-                                            color: DesignCourseAppTheme.grey
+                                            color: FreshBPAppTheme.grey
                                                 .withOpacity(0.2)),
                                       ),
                                       child: const Icon(
                                         Icons.add,
-                                        color: DesignCourseAppTheme.nearlyBlue,
+                                        color: FreshBPAppTheme.nearlyBlue,
                                         size: 28,
                                       ),
                                     ),
@@ -235,13 +235,13 @@ class _ProductInfoScreenState extends State<ProductInfoScreen>
                                         height: 48,
                                         decoration: BoxDecoration(
                                           color:
-                                              DesignCourseAppTheme.nearlyBlue,
+                                              FreshBPAppTheme.nearlyBlue,
                                           borderRadius: const BorderRadius.all(
                                             Radius.circular(16.0),
                                           ),
                                           boxShadow: <BoxShadow>[
                                             BoxShadow(
-                                                color: DesignCourseAppTheme
+                                                color: FreshBPAppTheme
                                                     .nearlyBlue
                                                     .withOpacity(0.5),
                                                 offset: const Offset(1.1, 1.1),
@@ -256,7 +256,7 @@ class _ProductInfoScreenState extends State<ProductInfoScreen>
                                               fontWeight: FontWeight.w600,
                                               fontSize: 18,
                                               letterSpacing: 0.0,
-                                              color: DesignCourseAppTheme
+                                              color: FreshBPAppTheme
                                                   .nearlyWhite,
                                             ),
                                           ),
@@ -286,7 +286,7 @@ class _ProductInfoScreenState extends State<ProductInfoScreen>
                 scale: CurvedAnimation(
                     parent: animationController, curve: Curves.fastOutSlowIn),
                 child: Card(
-                  color: DesignCourseAppTheme.nearlyBlue,
+                  color: FreshBPAppTheme.nearlyBlue,
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(50.0)),
                   elevation: 10.0,
@@ -296,7 +296,7 @@ class _ProductInfoScreenState extends State<ProductInfoScreen>
                     child: Center(
                       child: Icon(
                         Icons.favorite,
-                        color: DesignCourseAppTheme.nearlyWhite,
+                        color: FreshBPAppTheme.nearlyWhite,
                         size: 30,
                       ),
                     ),
@@ -316,7 +316,7 @@ class _ProductInfoScreenState extends State<ProductInfoScreen>
                         BorderRadius.circular(AppBar().preferredSize.height),
                     child: const Icon(
                       Icons.arrow_back_ios,
-                      color: DesignCourseAppTheme.nearlyBlack,
+                      color: FreshBPAppTheme.nearlyBlack,
                     ),
                     onTap: () {
                       Navigator.pop(context);
@@ -336,11 +336,11 @@ class _ProductInfoScreenState extends State<ProductInfoScreen>
       padding: const EdgeInsets.all(8.0),
       child: Container(
         decoration: BoxDecoration(
-          color: DesignCourseAppTheme.nearlyWhite,
+          color: FreshBPAppTheme.nearlyWhite,
           borderRadius: const BorderRadius.all(Radius.circular(16.0)),
           boxShadow: <BoxShadow>[
             BoxShadow(
-                color: DesignCourseAppTheme.grey.withOpacity(0.2),
+                color: FreshBPAppTheme.grey.withOpacity(0.2),
                 offset: const Offset(1.1, 1.1),
                 blurRadius: 8.0),
           ],
@@ -359,7 +359,7 @@ class _ProductInfoScreenState extends State<ProductInfoScreen>
                   fontWeight: FontWeight.w600,
                   fontSize: 14,
                   letterSpacing: 0.27,
-                  color: DesignCourseAppTheme.nearlyBlue,
+                  color: FreshBPAppTheme.nearlyBlue,
                 ),
               ),
               Text(
@@ -369,7 +369,7 @@ class _ProductInfoScreenState extends State<ProductInfoScreen>
                   fontWeight: FontWeight.w200,
                   fontSize: 14,
                   letterSpacing: 0.27,
-                  color: DesignCourseAppTheme.grey,
+                  color: FreshBPAppTheme.grey,
                 ),
               ),
             ],

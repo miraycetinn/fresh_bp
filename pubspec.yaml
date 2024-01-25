@@ -82,8 +82,8 @@ flutter:
   assets:
     - docs/assets/assets/
     - assets/images/
-    - assets/design_course/
-    - assets/fitness_app/
+    - assets/
+    - assets/freshh_app/
     - assets/hotel/
     - assets/introduction_animation/
   # To add assets to your application, add an assets section, like this:

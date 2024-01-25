@@ -1,11 +1,11 @@
+import 'package:flutter/material.dart';
+import 'package:freshh/features/auth/register_screen.dart';
 import 'package:freshh/features/introduction_animation/components/center_next_button.dart';
 import 'package:freshh/features/introduction_animation/components/mood_diary_vew.dart';
 import 'package:freshh/features/introduction_animation/components/relax_view.dart';
 import 'package:freshh/features/introduction_animation/components/splash_view.dart';
 import 'package:freshh/features/introduction_animation/components/top_back_skip_view.dart';
 import 'package:freshh/features/introduction_animation/components/welcome_view.dart';
-import 'package:freshh/fitness_app_home_screen.dart';
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'components/care_view.dart';
@@ -115,6 +115,6 @@ class _IntroductionAnimationScreenState
   }
 
   void _signUpClick() {
-    Get.to(const FitnessAppHomeScreen());
+    Get.to(const RegisterScreen());
   }
 }
