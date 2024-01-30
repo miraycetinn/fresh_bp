@@ -66,7 +66,7 @@ class AccountScreen extends StatelessWidget {
                       decoration: BoxDecoration(
                           color: HexColor("5C5EDD"),
                           borderRadius: BorderRadius.circular(10)),
-                      child: const Row(
+                      child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text("Settings",
@@ -94,7 +94,7 @@ class AccountScreen extends StatelessWidget {
                       decoration: BoxDecoration(
                           color: HexColor("5C5EDD"),
                           borderRadius: BorderRadius.circular(10)),
-                      child: const Row(
+                      child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text("About",
@@ -122,7 +122,7 @@ class AccountScreen extends StatelessWidget {
                       decoration: BoxDecoration(
                           color: HexColor("5C5EDD"),
                           borderRadius: BorderRadius.circular(10)),
-                      child: const Row(
+                      child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text("Privacy Policy",

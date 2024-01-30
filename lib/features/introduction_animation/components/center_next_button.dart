@@ -98,7 +98,7 @@ class CenterNextButton extends StatelessWidget {
                         ? InkWell(
                             key: const ValueKey('Sign Up button'),
                             onTap: onNextClick,
-                            child: const Padding(
+                            child: Padding(
                               padding: EdgeInsets.only(left: 16.0, right: 16.0),
                               child: Row(
                                 mainAxisAlignment:
