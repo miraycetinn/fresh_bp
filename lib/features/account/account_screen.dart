@@ -1,7 +1,10 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:freshh/features/account/about_screen.dart';
 import 'package:freshh/features/account/components/Buttons/primary_progress_button.dart';
 import 'package:freshh/features/account/components/text_outlined_button.dart';
+import 'package:freshh/features/account/privacy_screen.dart';
+import 'package:freshh/features/account/settings_screen.dart';
 import 'package:freshh/features/introduction_animation/introduction_animation_screen.dart';
 import 'package:freshh/globals.dart' as globals;
 import 'package:freshh/main.dart';
@@ -59,94 +62,21 @@ class AccountScreen extends StatelessWidget {
                     const SizedBox(
                       height: 10,
                     ),
-                    Container(
-                      width: double.infinity,
-                      height: 70,
-                      padding: const EdgeInsets.all(10.0),
-                      decoration: BoxDecoration(
-                          color: HexColor("5C5EDD"),
-                          borderRadius: BorderRadius.circular(10)),
-                      child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text("Settings",
-                                style: TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 17,
-                                    fontWeight: FontWeight.bold)),
-                            PrimaryProgressButton(
-                              width: 90,
-                              height: 40,
-                              label: "Go",
-                              textStyle: TextStyle(
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.bold),
-                            )
-                          ]),
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    Container(
-                      width: double.infinity,
-                      height: 70,
-                      padding: const EdgeInsets.all(10.0),
-                      decoration: BoxDecoration(
-                          color: HexColor("5C5EDD"),
-                          borderRadius: BorderRadius.circular(10)),
-                      child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text("About",
-                                style: TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 17,
-                                    fontWeight: FontWeight.bold)),
-                            PrimaryProgressButton(
-                              width: 90,
-                              height: 40,
-                              label: "Go",
-                              textStyle: TextStyle(
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.bold),
-                            )
-                          ]),
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    Container(
-                      width: double.infinity,
-                      height: 70,
-                      padding: const EdgeInsets.all(10.0),
-                      decoration: BoxDecoration(
-                          color: HexColor("5C5EDD"),
-                          borderRadius: BorderRadius.circular(10)),
-                      child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text("Privacy Policy",
-                                style: TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 17,
-                                    fontWeight: FontWeight.bold)),
-                            PrimaryProgressButton(
-                              width: 90,
-                              height: 40,
-                              label: "Go",
-                              textStyle: TextStyle(
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.bold),
-                            )
-                          ]),
-                    ),
+                    buildListTile("Settings", "Configure your preferences",
+                        Icons.settings, const SettingsScreen()),
+                    const SizedBox(height: 10),
+                    buildListTile("About", "Learn more about us", Icons.info,
+                        const AboutScreen()),
+                    const SizedBox(height: 10),
+                    buildListTile("Privacy Policy", "View our privacy policy",
+                        Icons.privacy_tip, const PrivacyScreen()),
                     const SizedBox(
                       height: 20,
                     ),
                     const SizedBox(
                       height: 10,
                     ),
-                    InkWell(
+                    GestureDetector(
                       onTap: () {
                         FirebaseAuth.instance.signOut();
                         Get.offAll(IntroductionAnimationScreen());
@@ -154,15 +84,30 @@ class AccountScreen extends StatelessWidget {
                       child: Container(
                         width: double.infinity,
                         height: 50,
+                        margin:
+                            EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                         decoration: BoxDecoration(
-                            color: HexColor("5C5EDD"),
-                            borderRadius: BorderRadius.circular(10)),
-                        child: const Center(
-                          child: Text("Log Out",
+                          color: HexColor('B00FE1'), // Renk değiştirildi
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(
+                              Icons.logout, // Çıkış simgesi
+                              color: Colors.white,
+                            ),
+                            SizedBox(
+                                width: 10), // Simge ile metin arasında boşluk
+                            Text(
+                              "Log Out",
                               style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold)),
+                                color: Colors.white,
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                     ),
@@ -199,4 +144,33 @@ class AccountScreen extends StatelessWidget {
       ),
     );
   }
+}
+
+Widget buildListTile(
+    String title, String subtitle, IconData iconData, Widget onClick) {
+  return ListTile(
+    contentPadding: EdgeInsets.zero,
+    title: Text(
+      title,
+      style: TextStyle(
+        fontSize: 17,
+        fontWeight: FontWeight.bold,
+        color: Colors.black,
+      ),
+    ),
+    subtitle: Text(
+      subtitle,
+      style: TextStyle(
+        fontSize: 14,
+        color: Colors.grey[600],
+      ),
+    ),
+    trailing: Icon(
+      iconData,
+      color: HexColor("B00FE1"),
+    ),
+    onTap: () {
+      Get.to(() => onClick);
+    },
+  );
 }

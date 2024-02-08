@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:freshh/features/auth/login_screen.dart';
 import 'package:get/get.dart';
 
+import '../../../freshh_app_home_screen.dart';
+
 class CenterNextButton extends StatelessWidget {
   final AnimationController animationController;
   final VoidCallback onNextClick;
@@ -166,9 +168,11 @@ class CenterNextButton extends StatelessWidget {
       ),
     );
   }
-  void _signInClick(){
-    Get.to( const LoginScreen());
+
+  void _signInClick() {
+    Get.to(const LoginScreen());
   }
+
   Widget _pageView() {
     int _selectedIndex = 0;
 

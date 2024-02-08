@@ -1,18 +1,22 @@
+import 'package:freshh/features/history/history_screen.dart';
 import 'package:freshh/themes/freshh_app_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class TitleView extends StatelessWidget {
   final String titleTxt;
   final String subTxt;
   final AnimationController? animationController;
   final Animation<double>? animation;
+  final Widget? page;
 
   const TitleView(
       {Key? key,
       this.titleTxt: "",
       this.subTxt: "",
       this.animationController,
-      this.animation})
+      this.animation,
+      this.page})
       : super(key: key);
 
   @override
@@ -43,40 +47,46 @@ class TitleView extends StatelessWidget {
                         ),
                       ),
                     ),
-
-                    (subTxt !="") ? InkWell(
-                      highlightColor: Colors.transparent,
-                      borderRadius: const BorderRadius.all(Radius.circular(4.0)),
-                      onTap: () {},
-                      child: Padding(
-                        padding: const EdgeInsets.only(left: 8),
-                        child: Row(
-                          children: [
-                            Text(
-                              subTxt,
-                              textAlign: TextAlign.left,
-                              style: const TextStyle(
-                                fontFamily: FreshhAppTheme.fontName,
-                                fontWeight: FontWeight.normal,
-                                fontSize: 16,
-                                letterSpacing: 0.5,
-                                color: FreshhAppTheme.nearlyDarkBlue,
+                    (subTxt != "")
+                        ? InkWell(
+                            highlightColor: Colors.transparent,
+                            borderRadius:
+                                const BorderRadius.all(Radius.circular(4.0)),
+                            onTap: () {
+                              Get.to(HistoryScreen());
+                            },
+                            child: Padding(
+                              padding: const EdgeInsets.only(left: 8),
+                              child: Row(
+                                children: [
+                                  Text(
+                                    subTxt,
+                                    textAlign: TextAlign.left,
+                                    style: const TextStyle(
+                                      fontFamily: FreshhAppTheme.fontName,
+                                      fontWeight: FontWeight.normal,
+                                      fontSize: 16,
+                                      letterSpacing: 0.5,
+                                      color: FreshhAppTheme.nearlyDarkBlue,
+                                    ),
+                                  ),
+                                  const SizedBox(
+                                    height: 38,
+                                    width: 26,
+                                    child: Icon(
+                                      Icons.arrow_forward,
+                                      color: FreshhAppTheme.darkText,
+                                      size: 18,
+                                    ),
+                                  ),
+                                ],
                               ),
                             ),
-                            const SizedBox(
-                              height: 38,
-                              width: 26,
-                              child: Icon(
-                                Icons.arrow_forward,
-                                color: FreshhAppTheme.darkText,
-                                size: 18,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ):const SizedBox(height: 38,
-                      width: 26,)
+                          )
+                        : const SizedBox(
+                            height: 38,
+                            width: 26,
+                          )
                   ],
                 ),
               ),

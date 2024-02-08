@@ -158,5 +158,7 @@ class LoginScreen extends StatelessWidget {
 }
 
 AlertDialog alertWrongEmail = const AlertDialog(title: Text("Hatalı Email"));
-AlertDialog alertWrongCredits = const AlertDialog(title: Text("Bilgileriniz hatalı"));
-AlertDialog alertBlankPassword = const AlertDialog(title: Text("Şifre giriniz"));
+AlertDialog alertWrongCredits =
+    const AlertDialog(title: Text("Bilgileriniz hatalı"));
+AlertDialog alertBlankPassword =
+    const AlertDialog(title: Text("Şifre giriniz"));
