@@ -1,5 +1,5 @@
 import 'package:freshh/models/skincares_list_data/skincares_list_data.dart';
-
+import 'package:flutter_map/flutter_map.dart';
 class Water {
   static int glassSize = 250;
   static bool bottleEmpty = false;
@@ -54,4 +54,10 @@ static List<SkincareListData> tabIconsList = <SkincareListData>[
   ),
 ];
 
+
+TileLayer get openStreetMapTileLayer => TileLayer(
+  urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+  userAgentPackageName: 'fresh.flutter_map',
+  tileProvider: NetworkTileProvider(),
+);
 }

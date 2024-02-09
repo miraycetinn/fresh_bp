@@ -300,6 +300,86 @@ abstract class SkincareHistoryDataQuery
   @override
   SkincareHistoryDataQuery limitToLast(int limit);
 
+  /// Perform a where query based on a [FieldPath].
+  ///
+  /// This method is considered unsafe as it does check that the field path
+  /// maps to a valid property or that parameters such as [isEqualTo] receive
+  /// a value of the correct type.
+  ///
+  /// If possible, instead use the more explicit variant of where queries:
+  ///
+  /// **AVOID**:
+  /// ```dart
+  /// collection.whereFieldPath(FieldPath.fromString('title'), isEqualTo: 'title');
+  /// ```
+  ///
+  /// **PREFER**:
+  /// ```dart
+  /// collection.whereTitle(isEqualTo: 'title');
+  /// ```
+  SkincareHistoryDataQuery whereFieldPath(
+    Object fieldPath, {
+    Object? isEqualTo,
+    Object? isNotEqualTo,
+    Object? isLessThan,
+    Object? isLessThanOrEqualTo,
+    Object? isGreaterThan,
+    Object? isGreaterThanOrEqualTo,
+    Object? arrayContains,
+    List<Object?>? arrayContainsAny,
+    List<Object?>? whereIn,
+    List<Object?>? whereNotIn,
+    bool? isNull,
+  });
+
+  SkincareHistoryDataQuery whereDocumentId({
+    String? isEqualTo,
+    String? isNotEqualTo,
+    String? isLessThan,
+    String? isLessThanOrEqualTo,
+    String? isGreaterThan,
+    String? isGreaterThanOrEqualTo,
+    List<String>? whereIn,
+    List<String>? whereNotIn,
+    bool? isNull,
+  });
+
+  SkincareHistoryDataQuery whereSkincareListDataReferance({
+    String? isEqualTo,
+    String? isNotEqualTo,
+    String? isLessThan,
+    String? isLessThanOrEqualTo,
+    String? isGreaterThan,
+    String? isGreaterThanOrEqualTo,
+    List<String>? whereIn,
+    List<String>? whereNotIn,
+    bool? isNull,
+  });
+
+  SkincareHistoryDataQuery whereIsUsed({
+    bool? isEqualTo,
+    bool? isNotEqualTo,
+    bool? isLessThan,
+    bool? isLessThanOrEqualTo,
+    bool? isGreaterThan,
+    bool? isGreaterThanOrEqualTo,
+    List<bool>? whereIn,
+    List<bool>? whereNotIn,
+    bool? isNull,
+  });
+
+  SkincareHistoryDataQuery whereDateTime({
+    DateTime? isEqualTo,
+    DateTime? isNotEqualTo,
+    DateTime? isLessThan,
+    DateTime? isLessThanOrEqualTo,
+    DateTime? isGreaterThan,
+    DateTime? isGreaterThanOrEqualTo,
+    List<DateTime>? whereIn,
+    List<DateTime>? whereNotIn,
+    bool? isNull,
+  });
+
   /// Perform an order query based on a [FieldPath].
   ///
   /// This method is considered unsafe as it does check that the field path
@@ -321,93 +401,16 @@ abstract class SkincareHistoryDataQuery
   /// collection.orderByTitle(startAt: 'title');
   /// ```
   SkincareHistoryDataQuery orderByFieldPath(
-    FieldPath fieldPath, {
+    Object fieldPath, {
     bool descending = false,
-    Object? startAt,
-    Object? startAfter,
-    Object? endAt,
-    Object? endBefore,
+    Object startAt,
+    Object startAfter,
+    Object endAt,
+    Object endBefore,
     SkincareHistoryDataDocumentSnapshot? startAtDocument,
     SkincareHistoryDataDocumentSnapshot? endAtDocument,
     SkincareHistoryDataDocumentSnapshot? endBeforeDocument,
     SkincareHistoryDataDocumentSnapshot? startAfterDocument,
-  });
-
-  /// Perform a where query based on a [FieldPath].
-  ///
-  /// This method is considered unsafe as it does check that the field path
-  /// maps to a valid property or that parameters such as [isEqualTo] receive
-  /// a value of the correct type.
-  ///
-  /// If possible, instead use the more explicit variant of where queries:
-  ///
-  /// **AVOID**:
-  /// ```dart
-  /// collection.whereFieldPath(FieldPath.fromString('title'), isEqualTo: 'title');
-  /// ```
-  ///
-  /// **PREFER**:
-  /// ```dart
-  /// collection.whereTitle(isEqualTo: 'title');
-  /// ```
-  SkincareHistoryDataQuery whereFieldPath(
-    FieldPath fieldPath, {
-    Object? isEqualTo,
-    Object? isNotEqualTo,
-    Object? isLessThan,
-    Object? isLessThanOrEqualTo,
-    Object? isGreaterThan,
-    Object? isGreaterThanOrEqualTo,
-    Object? arrayContains,
-    List<Object?>? arrayContainsAny,
-    List<Object?>? whereIn,
-    List<Object?>? whereNotIn,
-    bool? isNull,
-  });
-
-  SkincareHistoryDataQuery whereDocumentId({
-    String? isEqualTo,
-    String? isNotEqualTo,
-    String? isLessThan,
-    String? isLessThanOrEqualTo,
-    String? isGreaterThan,
-    String? isGreaterThanOrEqualTo,
-    bool? isNull,
-    List<String>? whereIn,
-    List<String>? whereNotIn,
-  });
-  SkincareHistoryDataQuery whereSkincareListDataReferance({
-    String? isEqualTo,
-    String? isNotEqualTo,
-    String? isLessThan,
-    String? isLessThanOrEqualTo,
-    String? isGreaterThan,
-    String? isGreaterThanOrEqualTo,
-    bool? isNull,
-    List<String>? whereIn,
-    List<String>? whereNotIn,
-  });
-  SkincareHistoryDataQuery whereIsUsed({
-    bool? isEqualTo,
-    bool? isNotEqualTo,
-    bool? isLessThan,
-    bool? isLessThanOrEqualTo,
-    bool? isGreaterThan,
-    bool? isGreaterThanOrEqualTo,
-    bool? isNull,
-    List<bool>? whereIn,
-    List<bool>? whereNotIn,
-  });
-  SkincareHistoryDataQuery whereDateTime({
-    DateTime? isEqualTo,
-    DateTime? isNotEqualTo,
-    DateTime? isLessThan,
-    DateTime? isLessThanOrEqualTo,
-    DateTime? isGreaterThan,
-    DateTime? isGreaterThanOrEqualTo,
-    bool? isNull,
-    List<DateTime>? whereIn,
-    List<DateTime>? whereNotIn,
   });
 
   SkincareHistoryDataQuery orderByDocumentId({
@@ -505,8 +508,230 @@ class _$SkincareHistoryDataQuery extends QueryReference<SkincareHistoryData,
     );
   }
 
+  @override
+  SkincareHistoryDataQuery whereFieldPath(
+    Object fieldPath, {
+    Object? isEqualTo = _sentinel,
+    Object? isNotEqualTo = _sentinel,
+    Object? isLessThan,
+    Object? isLessThanOrEqualTo,
+    Object? isGreaterThan,
+    Object? isGreaterThanOrEqualTo,
+    Object? arrayContains,
+    List<Object?>? arrayContainsAny,
+    List<Object?>? whereIn,
+    List<Object?>? whereNotIn,
+    bool? isNull,
+  }) {
+    return _$SkincareHistoryDataQuery(
+      _collection,
+      $referenceWithoutCursor: $referenceWithoutCursor.where(
+        fieldPath,
+        isEqualTo: isEqualTo != _sentinel ? isEqualTo : null,
+        isNotEqualTo: isNotEqualTo != _sentinel ? isNotEqualTo : null,
+        isLessThan: isLessThan,
+        isLessThanOrEqualTo: isLessThanOrEqualTo,
+        isGreaterThan: isGreaterThan,
+        isGreaterThanOrEqualTo: isGreaterThanOrEqualTo,
+        arrayContains: arrayContains,
+        arrayContainsAny: arrayContainsAny,
+        whereIn: whereIn,
+        whereNotIn: whereNotIn,
+        isNull: isNull ??
+            (isEqualTo == _sentinel ? false : null) ??
+            (isNotEqualTo == _sentinel ? true : null),
+      ),
+      $queryCursor: $queryCursor,
+    );
+  }
+
+  @override
+  SkincareHistoryDataQuery whereDocumentId({
+    Object? isEqualTo = _sentinel,
+    Object? isNotEqualTo = _sentinel,
+    Object? isLessThan,
+    Object? isLessThanOrEqualTo,
+    Object? isGreaterThan,
+    Object? isGreaterThanOrEqualTo,
+    List<String>? whereIn,
+    List<String>? whereNotIn,
+    bool? isNull,
+  }) {
+    return _$SkincareHistoryDataQuery(
+      _collection,
+      $referenceWithoutCursor: $referenceWithoutCursor.where(
+        FieldPath.documentId,
+        isEqualTo: isEqualTo != _sentinel ? isEqualTo : null,
+        isNotEqualTo: isNotEqualTo != _sentinel ? isNotEqualTo : null,
+        isLessThan: isLessThan,
+        isLessThanOrEqualTo: isLessThanOrEqualTo,
+        isGreaterThan: isGreaterThan,
+        isGreaterThanOrEqualTo: isGreaterThanOrEqualTo,
+        whereIn: whereIn,
+        whereNotIn: whereNotIn,
+        isNull: isNull ??
+            (isEqualTo == _sentinel ? false : null) ??
+            (isNotEqualTo == _sentinel ? true : null),
+      ),
+      $queryCursor: $queryCursor,
+    );
+  }
+
+  @override
+  SkincareHistoryDataQuery whereSkincareListDataReferance({
+    Object? isEqualTo = _sentinel,
+    Object? isNotEqualTo = _sentinel,
+    Object? isLessThan,
+    Object? isLessThanOrEqualTo,
+    Object? isGreaterThan,
+    Object? isGreaterThanOrEqualTo,
+    List<String>? whereIn,
+    List<String>? whereNotIn,
+    bool? isNull,
+  }) {
+    return _$SkincareHistoryDataQuery(
+      _collection,
+      $referenceWithoutCursor: $referenceWithoutCursor.where(
+        _$SkincareHistoryDataFieldMap['skincareListDataReferance']!,
+        isEqualTo: isEqualTo != _sentinel
+            ? _$SkincareHistoryDataPerFieldToJson
+                .skincareListDataReferance(isEqualTo as String)
+            : null,
+        isNotEqualTo: isNotEqualTo != _sentinel
+            ? _$SkincareHistoryDataPerFieldToJson
+                .skincareListDataReferance(isNotEqualTo as String)
+            : null,
+        isLessThan: isLessThan != null
+            ? _$SkincareHistoryDataPerFieldToJson
+                .skincareListDataReferance(isLessThan as String)
+            : null,
+        isLessThanOrEqualTo: isLessThanOrEqualTo != null
+            ? _$SkincareHistoryDataPerFieldToJson
+                .skincareListDataReferance(isLessThanOrEqualTo as String)
+            : null,
+        isGreaterThan: isGreaterThan != null
+            ? _$SkincareHistoryDataPerFieldToJson
+                .skincareListDataReferance(isGreaterThan as String)
+            : null,
+        isGreaterThanOrEqualTo: isGreaterThanOrEqualTo != null
+            ? _$SkincareHistoryDataPerFieldToJson
+                .skincareListDataReferance(isGreaterThanOrEqualTo as String)
+            : null,
+        whereIn: whereIn?.map((e) =>
+            _$SkincareHistoryDataPerFieldToJson.skincareListDataReferance(e)),
+        whereNotIn: whereNotIn?.map((e) =>
+            _$SkincareHistoryDataPerFieldToJson.skincareListDataReferance(e)),
+        isNull: isNull ??
+            (isEqualTo == _sentinel ? false : null) ??
+            (isNotEqualTo == _sentinel ? true : null),
+      ),
+      $queryCursor: $queryCursor,
+    );
+  }
+
+  @override
+  SkincareHistoryDataQuery whereIsUsed({
+    Object? isEqualTo = _sentinel,
+    Object? isNotEqualTo = _sentinel,
+    Object? isLessThan,
+    Object? isLessThanOrEqualTo,
+    Object? isGreaterThan,
+    Object? isGreaterThanOrEqualTo,
+    List<bool>? whereIn,
+    List<bool>? whereNotIn,
+    bool? isNull,
+  }) {
+    return _$SkincareHistoryDataQuery(
+      _collection,
+      $referenceWithoutCursor: $referenceWithoutCursor.where(
+        _$SkincareHistoryDataFieldMap['isUsed']!,
+        isEqualTo: isEqualTo != _sentinel
+            ? _$SkincareHistoryDataPerFieldToJson.isUsed(isEqualTo as bool)
+            : null,
+        isNotEqualTo: isNotEqualTo != _sentinel
+            ? _$SkincareHistoryDataPerFieldToJson.isUsed(isNotEqualTo as bool)
+            : null,
+        isLessThan: isLessThan != null
+            ? _$SkincareHistoryDataPerFieldToJson.isUsed(isLessThan as bool)
+            : null,
+        isLessThanOrEqualTo: isLessThanOrEqualTo != null
+            ? _$SkincareHistoryDataPerFieldToJson
+                .isUsed(isLessThanOrEqualTo as bool)
+            : null,
+        isGreaterThan: isGreaterThan != null
+            ? _$SkincareHistoryDataPerFieldToJson.isUsed(isGreaterThan as bool)
+            : null,
+        isGreaterThanOrEqualTo: isGreaterThanOrEqualTo != null
+            ? _$SkincareHistoryDataPerFieldToJson
+                .isUsed(isGreaterThanOrEqualTo as bool)
+            : null,
+        whereIn:
+            whereIn?.map((e) => _$SkincareHistoryDataPerFieldToJson.isUsed(e)),
+        whereNotIn: whereNotIn
+            ?.map((e) => _$SkincareHistoryDataPerFieldToJson.isUsed(e)),
+        isNull: isNull ??
+            (isEqualTo == _sentinel ? false : null) ??
+            (isNotEqualTo == _sentinel ? true : null),
+      ),
+      $queryCursor: $queryCursor,
+    );
+  }
+
+  @override
+  SkincareHistoryDataQuery whereDateTime({
+    Object? isEqualTo = _sentinel,
+    Object? isNotEqualTo = _sentinel,
+    Object? isLessThan,
+    Object? isLessThanOrEqualTo,
+    Object? isGreaterThan,
+    Object? isGreaterThanOrEqualTo,
+    List<DateTime>? whereIn,
+    List<DateTime>? whereNotIn,
+    bool? isNull,
+  }) {
+    return _$SkincareHistoryDataQuery(
+      _collection,
+      $referenceWithoutCursor: $referenceWithoutCursor.where(
+        _$SkincareHistoryDataFieldMap['dateTime']!,
+        isEqualTo: isEqualTo != _sentinel
+            ? _$SkincareHistoryDataPerFieldToJson
+                .dateTime(isEqualTo as DateTime)
+            : null,
+        isNotEqualTo: isNotEqualTo != _sentinel
+            ? _$SkincareHistoryDataPerFieldToJson
+                .dateTime(isNotEqualTo as DateTime)
+            : null,
+        isLessThan: isLessThan != null
+            ? _$SkincareHistoryDataPerFieldToJson
+                .dateTime(isLessThan as DateTime)
+            : null,
+        isLessThanOrEqualTo: isLessThanOrEqualTo != null
+            ? _$SkincareHistoryDataPerFieldToJson
+                .dateTime(isLessThanOrEqualTo as DateTime)
+            : null,
+        isGreaterThan: isGreaterThan != null
+            ? _$SkincareHistoryDataPerFieldToJson
+                .dateTime(isGreaterThan as DateTime)
+            : null,
+        isGreaterThanOrEqualTo: isGreaterThanOrEqualTo != null
+            ? _$SkincareHistoryDataPerFieldToJson
+                .dateTime(isGreaterThanOrEqualTo as DateTime)
+            : null,
+        whereIn: whereIn
+            ?.map((e) => _$SkincareHistoryDataPerFieldToJson.dateTime(e)),
+        whereNotIn: whereNotIn
+            ?.map((e) => _$SkincareHistoryDataPerFieldToJson.dateTime(e)),
+        isNull: isNull ??
+            (isEqualTo == _sentinel ? false : null) ??
+            (isNotEqualTo == _sentinel ? true : null),
+      ),
+      $queryCursor: $queryCursor,
+    );
+  }
+
+  @override
   SkincareHistoryDataQuery orderByFieldPath(
-    FieldPath fieldPath, {
+    Object fieldPath, {
     bool descending = false,
     Object? startAt = _sentinel,
     Object? startAfter = _sentinel,
@@ -570,6 +795,7 @@ class _$SkincareHistoryDataQuery extends QueryReference<SkincareHistoryData,
         endBeforeDocumentSnapshot: null,
       );
     }
+
     return _$SkincareHistoryDataQuery(
       _collection,
       $referenceWithoutCursor: query,
@@ -577,212 +803,7 @@ class _$SkincareHistoryDataQuery extends QueryReference<SkincareHistoryData,
     );
   }
 
-  SkincareHistoryDataQuery whereFieldPath(
-    FieldPath fieldPath, {
-    Object? isEqualTo = notSetQueryParam,
-    Object? isNotEqualTo = notSetQueryParam,
-    Object? isLessThan,
-    Object? isLessThanOrEqualTo,
-    Object? isGreaterThan,
-    Object? isGreaterThanOrEqualTo,
-    Object? arrayContains,
-    List<Object?>? arrayContainsAny,
-    List<Object?>? whereIn,
-    List<Object?>? whereNotIn,
-    bool? isNull,
-  }) {
-    return _$SkincareHistoryDataQuery(
-      _collection,
-      $referenceWithoutCursor: $referenceWithoutCursor.where(
-        fieldPath,
-        isEqualTo: isEqualTo,
-        isNotEqualTo: isNotEqualTo,
-        isLessThan: isLessThan,
-        isLessThanOrEqualTo: isLessThanOrEqualTo,
-        isGreaterThan: isGreaterThan,
-        isGreaterThanOrEqualTo: isGreaterThanOrEqualTo,
-        arrayContains: arrayContains,
-        arrayContainsAny: arrayContainsAny,
-        whereIn: whereIn,
-        whereNotIn: whereNotIn,
-        isNull: isNull,
-      ),
-      $queryCursor: $queryCursor,
-    );
-  }
-
-  SkincareHistoryDataQuery whereDocumentId({
-    Object? isEqualTo = notSetQueryParam,
-    Object? isNotEqualTo = notSetQueryParam,
-    Object? isLessThan = null,
-    Object? isLessThanOrEqualTo = null,
-    Object? isGreaterThan = null,
-    Object? isGreaterThanOrEqualTo = null,
-    bool? isNull,
-    List<String>? whereIn,
-    List<String>? whereNotIn,
-  }) {
-    return _$SkincareHistoryDataQuery(
-      _collection,
-      $referenceWithoutCursor: $referenceWithoutCursor.where(
-        FieldPath.documentId,
-        isEqualTo: isEqualTo,
-        isNotEqualTo: isNotEqualTo,
-        isLessThan: isLessThan,
-        isLessThanOrEqualTo: isLessThanOrEqualTo,
-        isGreaterThan: isGreaterThan,
-        isGreaterThanOrEqualTo: isGreaterThanOrEqualTo,
-        isNull: isNull,
-        whereIn: whereIn,
-        whereNotIn: whereNotIn,
-      ),
-      $queryCursor: $queryCursor,
-    );
-  }
-
-  SkincareHistoryDataQuery whereSkincareListDataReferance({
-    Object? isEqualTo = notSetQueryParam,
-    Object? isNotEqualTo = notSetQueryParam,
-    Object? isLessThan = null,
-    Object? isLessThanOrEqualTo = null,
-    Object? isGreaterThan = null,
-    Object? isGreaterThanOrEqualTo = null,
-    bool? isNull,
-    List<String>? whereIn,
-    List<String>? whereNotIn,
-  }) {
-    return _$SkincareHistoryDataQuery(
-      _collection,
-      $referenceWithoutCursor: $referenceWithoutCursor.where(
-        _$SkincareHistoryDataFieldMap['skincareListDataReferance']!,
-        isEqualTo: isEqualTo != notSetQueryParam
-            ? _$SkincareHistoryDataPerFieldToJson
-                .skincareListDataReferance(isEqualTo as String)
-            : notSetQueryParam,
-        isNotEqualTo: isNotEqualTo != notSetQueryParam
-            ? _$SkincareHistoryDataPerFieldToJson
-                .skincareListDataReferance(isNotEqualTo as String)
-            : notSetQueryParam,
-        isLessThan: isLessThan != null
-            ? _$SkincareHistoryDataPerFieldToJson
-                .skincareListDataReferance(isLessThan as String)
-            : null,
-        isLessThanOrEqualTo: isLessThanOrEqualTo != null
-            ? _$SkincareHistoryDataPerFieldToJson
-                .skincareListDataReferance(isLessThanOrEqualTo as String)
-            : null,
-        isGreaterThan: isGreaterThan != null
-            ? _$SkincareHistoryDataPerFieldToJson
-                .skincareListDataReferance(isGreaterThan as String)
-            : null,
-        isGreaterThanOrEqualTo: isGreaterThanOrEqualTo != null
-            ? _$SkincareHistoryDataPerFieldToJson
-                .skincareListDataReferance(isGreaterThanOrEqualTo as String)
-            : null,
-        isNull: isNull,
-        whereIn: whereIn?.map((e) =>
-            _$SkincareHistoryDataPerFieldToJson.skincareListDataReferance(e)),
-        whereNotIn: whereNotIn?.map((e) =>
-            _$SkincareHistoryDataPerFieldToJson.skincareListDataReferance(e)),
-      ),
-      $queryCursor: $queryCursor,
-    );
-  }
-
-  SkincareHistoryDataQuery whereIsUsed({
-    Object? isEqualTo = notSetQueryParam,
-    Object? isNotEqualTo = notSetQueryParam,
-    Object? isLessThan = null,
-    Object? isLessThanOrEqualTo = null,
-    Object? isGreaterThan = null,
-    Object? isGreaterThanOrEqualTo = null,
-    bool? isNull,
-    List<bool>? whereIn,
-    List<bool>? whereNotIn,
-  }) {
-    return _$SkincareHistoryDataQuery(
-      _collection,
-      $referenceWithoutCursor: $referenceWithoutCursor.where(
-        _$SkincareHistoryDataFieldMap['isUsed']!,
-        isEqualTo: isEqualTo != notSetQueryParam
-            ? _$SkincareHistoryDataPerFieldToJson.isUsed(isEqualTo as bool)
-            : notSetQueryParam,
-        isNotEqualTo: isNotEqualTo != notSetQueryParam
-            ? _$SkincareHistoryDataPerFieldToJson.isUsed(isNotEqualTo as bool)
-            : notSetQueryParam,
-        isLessThan: isLessThan != null
-            ? _$SkincareHistoryDataPerFieldToJson.isUsed(isLessThan as bool)
-            : null,
-        isLessThanOrEqualTo: isLessThanOrEqualTo != null
-            ? _$SkincareHistoryDataPerFieldToJson
-                .isUsed(isLessThanOrEqualTo as bool)
-            : null,
-        isGreaterThan: isGreaterThan != null
-            ? _$SkincareHistoryDataPerFieldToJson.isUsed(isGreaterThan as bool)
-            : null,
-        isGreaterThanOrEqualTo: isGreaterThanOrEqualTo != null
-            ? _$SkincareHistoryDataPerFieldToJson
-                .isUsed(isGreaterThanOrEqualTo as bool)
-            : null,
-        isNull: isNull,
-        whereIn:
-            whereIn?.map((e) => _$SkincareHistoryDataPerFieldToJson.isUsed(e)),
-        whereNotIn: whereNotIn
-            ?.map((e) => _$SkincareHistoryDataPerFieldToJson.isUsed(e)),
-      ),
-      $queryCursor: $queryCursor,
-    );
-  }
-
-  SkincareHistoryDataQuery whereDateTime({
-    Object? isEqualTo = notSetQueryParam,
-    Object? isNotEqualTo = notSetQueryParam,
-    Object? isLessThan = null,
-    Object? isLessThanOrEqualTo = null,
-    Object? isGreaterThan = null,
-    Object? isGreaterThanOrEqualTo = null,
-    bool? isNull,
-    List<DateTime>? whereIn,
-    List<DateTime>? whereNotIn,
-  }) {
-    return _$SkincareHistoryDataQuery(
-      _collection,
-      $referenceWithoutCursor: $referenceWithoutCursor.where(
-        _$SkincareHistoryDataFieldMap['dateTime']!,
-        isEqualTo: isEqualTo != notSetQueryParam
-            ? _$SkincareHistoryDataPerFieldToJson
-                .dateTime(isEqualTo as DateTime)
-            : notSetQueryParam,
-        isNotEqualTo: isNotEqualTo != notSetQueryParam
-            ? _$SkincareHistoryDataPerFieldToJson
-                .dateTime(isNotEqualTo as DateTime)
-            : notSetQueryParam,
-        isLessThan: isLessThan != null
-            ? _$SkincareHistoryDataPerFieldToJson
-                .dateTime(isLessThan as DateTime)
-            : null,
-        isLessThanOrEqualTo: isLessThanOrEqualTo != null
-            ? _$SkincareHistoryDataPerFieldToJson
-                .dateTime(isLessThanOrEqualTo as DateTime)
-            : null,
-        isGreaterThan: isGreaterThan != null
-            ? _$SkincareHistoryDataPerFieldToJson
-                .dateTime(isGreaterThan as DateTime)
-            : null,
-        isGreaterThanOrEqualTo: isGreaterThanOrEqualTo != null
-            ? _$SkincareHistoryDataPerFieldToJson
-                .dateTime(isGreaterThanOrEqualTo as DateTime)
-            : null,
-        isNull: isNull,
-        whereIn: whereIn
-            ?.map((e) => _$SkincareHistoryDataPerFieldToJson.dateTime(e)),
-        whereNotIn: whereNotIn
-            ?.map((e) => _$SkincareHistoryDataPerFieldToJson.dateTime(e)),
-      ),
-      $queryCursor: $queryCursor,
-    );
-  }
-
+  @override
   SkincareHistoryDataQuery orderByDocumentId({
     bool descending = false,
     Object? startAt = _sentinel,
@@ -855,6 +876,7 @@ class _$SkincareHistoryDataQuery extends QueryReference<SkincareHistoryData,
     );
   }
 
+  @override
   SkincareHistoryDataQuery orderBySkincareListDataReferance({
     bool descending = false,
     Object? startAt = _sentinel,
@@ -928,6 +950,7 @@ class _$SkincareHistoryDataQuery extends QueryReference<SkincareHistoryData,
     );
   }
 
+  @override
   SkincareHistoryDataQuery orderByIsUsed({
     bool descending = false,
     Object? startAt = _sentinel,
@@ -1001,6 +1024,7 @@ class _$SkincareHistoryDataQuery extends QueryReference<SkincareHistoryData,
     );
   }
 
+  @override
   SkincareHistoryDataQuery orderByDateTime({
     bool descending = false,
     Object? startAt = _sentinel,

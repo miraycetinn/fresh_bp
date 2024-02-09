@@ -22,16 +22,13 @@ class CalendarPopupView extends StatefulWidget {
   _CalendarPopupViewState createState() => _CalendarPopupViewState();
 }
 
-class _CalendarPopupViewState extends State<CalendarPopupView>
-    with TickerProviderStateMixin {
+class _CalendarPopupViewState extends State<CalendarPopupView> with TickerProviderStateMixin {
   AnimationController? animationController;
   DateTime? startDate;
-  DateTime? endDate;
 
   @override
   void initState() {
-    animationController = AnimationController(
-        duration: const Duration(milliseconds: 400), vsync: this);
+    animationController = AnimationController(duration: const Duration(milliseconds: 400), vsync: this);
     if (widget.initialStartDate != null) {
       startDate = widget.initialStartDate;
     }
@@ -72,18 +69,13 @@ class _CalendarPopupViewState extends State<CalendarPopupView>
                     child: Container(
                       decoration: BoxDecoration(
                         color: AppTheme.buildLightTheme().backgroundColor,
-                        borderRadius:
-                            const BorderRadius.all(Radius.circular(24.0)),
+                        borderRadius: const BorderRadius.all(Radius.circular(24.0)),
                         boxShadow: <BoxShadow>[
-                          BoxShadow(
-                              color: Colors.grey.withOpacity(0.2),
-                              offset: const Offset(4, 4),
-                              blurRadius: 8.0),
+                          BoxShadow(color: Colors.grey.withOpacity(0.2), offset: const Offset(4, 4), blurRadius: 8.0),
                         ],
                       ),
                       child: InkWell(
-                        borderRadius:
-                            const BorderRadius.all(Radius.circular(24.0)),
+                        borderRadius: const BorderRadius.all(Radius.circular(24.0)),
                         onTap: () {},
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -99,15 +91,12 @@ class _CalendarPopupViewState extends State<CalendarPopupView>
                               },
                             ),
                             Padding(
-                              padding: const EdgeInsets.only(
-                                  left: 16, right: 16, bottom: 16, top: 8),
+                              padding: const EdgeInsets.only(left: 16, right: 16, bottom: 16, top: 8),
                               child: Container(
                                 height: 48,
                                 decoration: BoxDecoration(
-                                  color:
-                                      AppTheme.buildLightTheme().primaryColor,
-                                  borderRadius: const BorderRadius.all(
-                                      Radius.circular(24.0)),
+                                  color: AppTheme.buildLightTheme().primaryColor,
+                                  borderRadius: const BorderRadius.all(Radius.circular(24.0)),
                                   boxShadow: <BoxShadow>[
                                     BoxShadow(
                                       color: Colors.grey.withOpacity(0.6),
@@ -119,8 +108,7 @@ class _CalendarPopupViewState extends State<CalendarPopupView>
                                 child: Material(
                                   color: Colors.transparent,
                                   child: InkWell(
-                                    borderRadius: const BorderRadius.all(
-                                        Radius.circular(24.0)),
+                                    borderRadius: const BorderRadius.all(Radius.circular(24.0)),
                                     highlightColor: Colors.transparent,
                                     onTap: () {
                                       try {
@@ -131,10 +119,7 @@ class _CalendarPopupViewState extends State<CalendarPopupView>
                                     child: const Center(
                                       child: Text(
                                         'Apply',
-                                        style: TextStyle(
-                                            fontWeight: FontWeight.w500,
-                                            fontSize: 18,
-                                            color: Colors.white),
+                                        style: TextStyle(fontWeight: FontWeight.w500, fontSize: 18, color: Colors.white),
                                       ),
                                     ),
                                   ),

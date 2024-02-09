@@ -1,9 +1,11 @@
 import 'package:freshh/themes/freshh_app_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class TitleView extends StatelessWidget {
   final String titleTxt;
   final String subTxt;
+  final Widget? link ;
   final AnimationController? animationController;
   final Animation<double>? animation;
 
@@ -11,6 +13,7 @@ class TitleView extends StatelessWidget {
       {Key? key,
       this.titleTxt: "",
       this.subTxt: "",
+      this.link,
       this.animationController,
       this.animation})
       : super(key: key);
@@ -47,7 +50,9 @@ class TitleView extends StatelessWidget {
                     (subTxt !="") ? InkWell(
                       highlightColor: Colors.transparent,
                       borderRadius: const BorderRadius.all(Radius.circular(4.0)),
-                      onTap: () {},
+                      onTap: () {
+                        Get.to(link);
+                      },
                       child: Padding(
                         padding: const EdgeInsets.only(left: 8),
                         child: Row(

@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:freshh/features/core/widget/custom_progress_indicator.dart';
 import 'package:freshh/features/skincare/components/skincare_routine_item_view.dart';
 import 'package:freshh/models/globals.dart';
 import 'package:freshh/models/morning_routine/morning_routine.dart';
@@ -28,7 +29,6 @@ class _SkincareRoutineViewState extends State<SkincareRoutineView>
     with TickerProviderStateMixin {
   AnimationController? animationController;
   List<SkincareListData> skincaresListData = SkincareGlobal.tabIconsList;
-
   @override
   void initState() {
     animationController = AnimationController(
@@ -57,14 +57,13 @@ class _SkincareRoutineViewState extends State<SkincareRoutineView>
           child: Transform(
             transform: Matrix4.translationValues(
                 0.0, 30 * (1.0 - widget.mainScreenAnimation!.value), 0.0),
-            child: Container(
+            child: SizedBox(
                 height: 300,
                 width: double.infinity,
                 child: FutureBuilder(
                   builder: (context, data) {
                     if (data.data == null) {
-                      return const Text("Veri yok yada hatalı",
-                          style: TextStyle(color: Colors.black));
+                      return const CustomProgressIndicator();
                     }
                     return GridView.builder(
                       gridDelegate:
@@ -88,7 +87,6 @@ class _SkincareRoutineViewState extends State<SkincareRoutineView>
                                     curve: Interval((1 / count) * index, 1.0,
                                         curve: Curves.fastOutSlowIn)));
                         animationController?.forward();
-
                         return Center(
                           child: InkWell(
                             onTap: () {

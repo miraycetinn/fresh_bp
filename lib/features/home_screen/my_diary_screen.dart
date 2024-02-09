@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:freshh/features/core/header/header.dart';
+import 'package:freshh/features/history/history_screen.dart';
 import 'package:freshh/features/home_screen/components/body_measurement.dart';
 import 'package:freshh/features/home_screen/components/glass_view.dart';
 import 'package:freshh/features/home_screen/components/skincares_list_view.dart';
@@ -36,6 +37,7 @@ class _MyDiaryScreenState extends State<MyDiaryScreen>
       TitleView(
         titleTxt: 'Morning Routine',
         subTxt: 'History',
+        link: HistoryScreen(isMorning: true,isWater: false),
         animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
             parent: widget.animationController,
             curve: const Interval((1 / count) * 2, 1.0,
@@ -59,6 +61,8 @@ class _MyDiaryScreenState extends State<MyDiaryScreen>
       TitleView(
         titleTxt: 'Night Routine',
         subTxt: 'History',
+        link: HistoryScreen(isMorning: false,isWater: false),
+
         animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
             parent: widget.animationController,
             curve: const Interval((1 / count) * 2, 1.0,
@@ -82,7 +86,6 @@ class _MyDiaryScreenState extends State<MyDiaryScreen>
     listViews.add(
       TitleView(
         titleTxt: 'Body measurement',
-        subTxt: 'History',
         animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
             parent: widget.animationController,
             curve: const Interval((1 / count) * 4, 1.0,
@@ -104,6 +107,7 @@ class _MyDiaryScreenState extends State<MyDiaryScreen>
       TitleView(
         titleTxt: 'Water',
         subTxt: 'History',
+        link: HistoryScreen(isMorning: false,isWater: true),
         animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
             parent: widget.animationController,
             curve: const Interval((1 / count) * 6, 1.0,

@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:freshh/features/core/widget/calendar_popup_view.dart';
-import 'package:freshh/themes/freshh_app_theme.dart';
 import 'package:freshh/models/globals.dart';
-import 'package:intl/intl.dart';
+import 'package:freshh/themes/freshh_app_theme.dart';
 
 class Header extends StatefulWidget {
   const Header({Key? key, required this.animationController, required this.scrollController}) : super(key: key);
   final AnimationController animationController;
   final ScrollController scrollController;
+
   @override
   State<Header> createState() => _HeaderState();
 }
@@ -17,10 +17,8 @@ class _HeaderState extends State<Header> {
   double topBarOpacity = 0.0;
 
   void initState() {
-    topBarAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
-        CurvedAnimation(
-            parent: widget.animationController,
-            curve: const Interval(0, 0.5, curve: Curves.fastOutSlowIn)));
+    topBarAnimation = Tween<double>(begin: 0.0, end: 1.0)
+        .animate(CurvedAnimation(parent: widget.animationController, curve: const Interval(0, 0.5, curve: Curves.fastOutSlowIn)));
 
     widget.scrollController.addListener(() {
       if (widget.scrollController.offset >= 24) {
@@ -29,8 +27,7 @@ class _HeaderState extends State<Header> {
             topBarOpacity = 1.0;
           });
         }
-      } else if (widget.scrollController.offset <= 24 &&
-          widget. scrollController.offset >= 0) {
+      } else if (widget.scrollController.offset <= 24 && widget.scrollController.offset >= 0) {
         if (topBarOpacity != widget.scrollController.offset / 24) {
           setState(() {
             topBarOpacity = widget.scrollController.offset / 24;
@@ -46,6 +43,7 @@ class _HeaderState extends State<Header> {
     });
     super.initState();
   }
+
   DateTime startDate = SkincareGlobal.date;
 
   void showDemoDialog({BuildContext? context}) {
@@ -64,6 +62,7 @@ class _HeaderState extends State<Header> {
       ),
     );
   }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -74,8 +73,7 @@ class _HeaderState extends State<Header> {
             return FadeTransition(
               opacity: topBarAnimation,
               child: Transform(
-                transform: Matrix4.translationValues(
-                    0.0, 30 * (1.0 - topBarAnimation.value), 0.0),
+                transform: Matrix4.translationValues(0.0, 30 * (1.0 - topBarAnimation.value), 0.0),
                 child: Container(
                   decoration: BoxDecoration(
                     color: FreshhAppTheme.white.withOpacity(topBarOpacity),
@@ -83,11 +81,7 @@ class _HeaderState extends State<Header> {
                       bottomLeft: Radius.circular(32.0),
                     ),
                     boxShadow: <BoxShadow>[
-                      BoxShadow(
-                          color: FreshhAppTheme.grey
-                              .withOpacity(0.4 * topBarOpacity),
-                          offset: const Offset(1.1, 1.1),
-                          blurRadius: 10.0),
+                      BoxShadow(color: FreshhAppTheme.grey.withOpacity(0.4 * topBarOpacity), offset: const Offset(1.1, 1.1), blurRadius: 10.0),
                     ],
                   ),
                   child: Column(
@@ -96,11 +90,7 @@ class _HeaderState extends State<Header> {
                         height: MediaQuery.of(context).padding.top,
                       ),
                       Padding(
-                        padding: EdgeInsets.only(
-                            left: 16,
-                            right: 16,
-                            top: 16 - 8.0 * topBarOpacity,
-                            bottom: 12 - 8.0 * topBarOpacity),
+                        padding: EdgeInsets.only(left: 16, right: 16, top: 16 - 8.0 * topBarOpacity, bottom: 12 - 8.0 * topBarOpacity),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
@@ -120,7 +110,7 @@ class _HeaderState extends State<Header> {
                                 ),
                               ),
                             ),
-                            SizedBox(
+                            /* SizedBox(
                               height: 38,
                               width: 38,
                               child: InkWell(
@@ -189,7 +179,7 @@ class _HeaderState extends State<Header> {
                                   ),
                                 ),
                               ),
-                            ),
+                            ),*/
                           ],
                         ),
                       )

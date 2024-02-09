@@ -1,15 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:freshh/features/products/product_info_screen.dart';
 import 'package:freshh/features/core/header/header.dart';
 import 'package:freshh/features/home_screen/components/title_view.dart';
 import 'package:freshh/features/products/product_list_view.dart';
-import 'package:get/get.dart';
 
 import '../../themes/freshh_app_theme.dart';
 
 class ProductsScreen extends StatefulWidget {
-  const ProductsScreen({Key? key, required this.animationController})
-      : super(key: key);
+  const ProductsScreen({Key? key, required this.animationController}) : super(key: key);
 
   final AnimationController animationController;
 
@@ -17,8 +14,7 @@ class ProductsScreen extends StatefulWidget {
   _ProductsScreenState createState() => _ProductsScreenState();
 }
 
-class _ProductsScreenState extends State<ProductsScreen>
-    with TickerProviderStateMixin {
+class _ProductsScreenState extends State<ProductsScreen> with TickerProviderStateMixin {
   Animation<double>? topBarAnimation;
 
   List listViews = [];
@@ -27,10 +23,8 @@ class _ProductsScreenState extends State<ProductsScreen>
 
   @override
   void initState() {
-    topBarAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
-        CurvedAnimation(
-            parent: widget.animationController,
-            curve: const Interval(0, 0.5, curve: Curves.fastOutSlowIn)));
+    topBarAnimation = Tween<double>(begin: 0.0, end: 1.0)
+        .animate(CurvedAnimation(parent: widget.animationController, curve: const Interval(0, 0.5, curve: Curves.fastOutSlowIn)));
     addAllListData();
 
     scrollController.addListener(() {
@@ -40,8 +34,7 @@ class _ProductsScreenState extends State<ProductsScreen>
             topBarOpacity = 1.0;
           });
         }
-      } else if (scrollController.offset <= 24 &&
-          scrollController.offset >= 0) {
+      } else if (scrollController.offset <= 24 && scrollController.offset >= 0) {
         if (topBarOpacity != scrollController.offset / 24) {
           setState(() {
             topBarOpacity = scrollController.offset / 24;
@@ -64,10 +57,8 @@ class _ProductsScreenState extends State<ProductsScreen>
     listViews.add(
       TitleView(
         titleTxt: 'Products',
-        animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
-            parent: widget.animationController,
-            curve: const Interval((1 / count) * 4, 1.0,
-                curve: Curves.fastOutSlowIn))),
+        animation: Tween<double>(begin: 0.0, end: 1.0)
+            .animate(CurvedAnimation(parent: widget.animationController, curve: const Interval((1 / count) * 4, 1.0, curve: Curves.fastOutSlowIn))),
         animationController: widget.animationController,
       ),
     );
@@ -75,9 +66,6 @@ class _ProductsScreenState extends State<ProductsScreen>
     listViews.add(
       ProductListView(
         animationController: widget.animationController,
-        callBack: () {
-          Get.to(ProductInfoScreen());
-        },
       ),
     );
   }
@@ -119,9 +107,7 @@ class _ProductsScreenState extends State<ProductsScreen>
           return ListView.builder(
             controller: scrollController,
             padding: EdgeInsets.only(
-              top: AppBar().preferredSize.height +
-                  MediaQuery.of(context).padding.top +
-                  24,
+              top: AppBar().preferredSize.height + MediaQuery.of(context).padding.top + 24,
               bottom: 62 + MediaQuery.of(context).padding.bottom,
             ),
             itemCount: listViews.length,
